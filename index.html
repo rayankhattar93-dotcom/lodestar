@@ -958,7 +958,10 @@
     window.scrollTo({top:0});
     requestAnimationFrame(observeReveals);
   }
-  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.go)));
+  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>{
+    if(el.dataset.go==='book'){window.open('https://calendly.com/rayankhattar93/freecareerconsultation','_blank');return;}
+    go(el.dataset.go);
+  }));
   document.getElementById('menuToggle').addEventListener('click',()=>navLinksWrap.classList.toggle('open'));
 
   let io;
@@ -967,7 +970,7 @@
     io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
     document.querySelectorAll('.page.active .reveal:not(.in)').forEach(el=>io.observe(el));
   }
-  document.getElementById('bookBtn').addEventListener('click',()=>document.getElementById('confirmMsg').classList.add('show'));
+  document.getElementById('bookBtn').addEventListener('click',()=>window.open('https://calendly.com/rayankhattar93/freecareerconsultation','_blank'));
 
   const overlay=document.getElementById('overlay');
   function setMode(m){
