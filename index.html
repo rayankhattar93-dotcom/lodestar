@@ -448,6 +448,30 @@
     .truth[style*="grid"] > div:first-child{border-radius:26px 26px 0 0}
   }
 
+  /* ---------- LEAD CAPTURE (lc-) ---------- */
+  .lc-section{padding:84px 0}
+  .lc-inner{max-width:700px;margin:0 auto;text-align:center}
+  .lc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 36px}
+  .lc-card{background:#1E1333;border:1px solid var(--line-2);border-radius:20px;padding:24px 20px;text-align:left;transition:border-color .3s,transform .3s}
+  .lc-card:hover{border-color:var(--magenta);transform:translateY(-4px)}
+  .lc-card-ic{width:44px;height:44px;border-radius:13px;background:var(--grad-soft);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--cyan)}
+  .lc-card-lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px}
+  .lc-card-ttl{font-family:'Bricolage Grotesque',sans-serif;font-size:1rem;font-weight:600;color:var(--text);line-height:1.3}
+  .lc-form-wrap{background:linear-gradient(160deg,rgba(30,24,64,.7),rgba(18,14,34,.55));border:1px solid var(--line-2);border-radius:24px;padding:32px}
+  .lc-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .lc-inp{width:100%;padding:13px 15px;border:1px solid var(--line-2);border-radius:13px;font-family:inherit;font-size:.95rem;background:rgba(11,9,24,.6);color:var(--text);transition:border .2s,box-shadow .2s}
+  .lc-inp::placeholder{color:var(--dim)}
+  .lc-inp:focus{outline:none;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(248,95,168,.18)}
+  .lc-btn{font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:.97rem;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;background:var(--grad);color:#fff;box-shadow:0 10px 30px -10px rgba(248,95,168,.6);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,filter .25s;width:100%}
+  .lc-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 16px 40px -10px rgba(46,203,242,.6);filter:brightness(1.08)}
+  .lc-btn:disabled{opacity:.6;cursor:not-allowed}
+  .lc-msg{display:none;border-radius:14px;padding:14px 18px;font-size:.93rem;margin-top:12px}
+  .lc-msg.lc-ok{display:block;background:rgba(46,203,242,.1);border:1px solid rgba(46,203,242,.4);color:var(--cyan)}
+  .lc-msg.lc-err{display:block;background:rgba(248,95,168,.1);border:1px solid rgba(248,95,168,.35);color:var(--magenta)}
+  .lc-note{font-size:.8rem;color:var(--dim);text-align:center;margin-top:12px}
+  @media(max-width:720px){.lc-cards{grid-template-columns:1fr}}
+  @media(max-width:640px){.lc-section{padding:52px 0}.lc-row{grid-template-columns:1fr}.lc-form-wrap{padding:22px 18px}}
+
 </style>
 </head>
 <body>
@@ -589,6 +613,43 @@
                alt="Person studying and growing" loading="lazy"
                style="width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center;display:block"/>
           <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(18,14,34,0.5) 0%,transparent 50%)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEAD CAPTURE ===== -->
+  <section class="lc-section">
+    <div class="wrap">
+      <div class="lc-inner">
+        <div class="eyebrow reveal">Free resources</div>
+        <h2 class="sec-title reveal d1">Get Your Free <span class="grad-text">Career Toolkit</span></h2>
+        <p class="sec-lead reveal d2" style="margin:0 auto 36px">3 resources. Zero fluff. Instant download.</p>
+        <div class="lc-cards reveal d3">
+          <div class="lc-card">
+            <div class="lc-card-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="lc-card-lbl">CV Checklist</div>
+            <div class="lc-card-ttl">The 10 Things Recruiters Check in 6 Seconds</div>
+          </div>
+          <div class="lc-card">
+            <div class="lc-card-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+            <div class="lc-card-lbl">Job Search Roadmap</div>
+            <div class="lc-card-ttl">From Invisible to Interview-Ready</div>
+          </div>
+          <div class="lc-card">
+            <div class="lc-card-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="lc-card-lbl">LinkedIn Audit</div>
+            <div class="lc-card-ttl">Why Your LinkedIn Profile Isn&#8217;t Getting You Calls</div>
+          </div>
+        </div>
+        <div class="lc-form-wrap reveal d4">
+          <div class="lc-row">
+            <input class="lc-inp" type="text" id="lc-fname" placeholder="First name" autocomplete="given-name">
+            <input class="lc-inp" type="email" id="lc-email" placeholder="Email address" autocomplete="email">
+          </div>
+          <button class="lc-btn" id="lc-btn">Send My Free Guides</button>
+          <div class="lc-msg" id="lc-msg" role="alert"></div>
+          <p class="lc-note">No spam, ever. Unsubscribe any time.</p>
         </div>
       </div>
     </div>
@@ -995,6 +1056,61 @@
   document.getElementById('modalSubmit').addEventListener('click',()=>document.getElementById('modalConfirm').classList.add('show'));
 
   observeReveals();
+</script>
+<script>
+(function(){
+  var LC_LIST=3;
+  var LC_PDFS=[
+    'resources/Lodestar_CV_Checklist.pdf',
+    'resources/Lodestar_Job_Search_Roadmap.pdf',
+    'resources/Lodestar_LinkedIn_Audit.pdf'
+  ];
+  function lcDownload(){
+    LC_PDFS.forEach(function(p,i){
+      setTimeout(function(){
+        var a=document.createElement('a');
+        a.href=p;
+        a.download=p.split('/').pop();
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      },i*400);
+    });
+  }
+  function lcMsg(type,text){
+    var el=document.getElementById('lc-msg');
+    el.className='lc-msg '+(type==='ok'?'lc-ok':'lc-err');
+    el.textContent=text;
+  }
+  document.getElementById('lc-btn').addEventListener('click',function(){
+    var name=document.getElementById('lc-fname').value.trim();
+    var email=document.getElementById('lc-email').value.trim();
+    var btn=document.getElementById('lc-btn');
+    if(!name){lcMsg('err','Please enter your first name.');return;}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){lcMsg('err','Please enter a valid email address.');return;}
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    fetch('https://brevo-proxy.rayankhattar93.workers.dev',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({firstName:name,email:email,listId:LC_LIST})
+    })
+    .then(function(r){
+      if(r.ok){
+        lcMsg('ok','Check your inbox — your guides are on the way.');
+        btn.textContent='Guides sent ✓';
+        lcDownload();
+      } else {
+        return r.json().then(function(d){throw new Error(d.message||'Unexpected error');});
+      }
+    })
+    .catch(function(){
+      btn.disabled=false;
+      btn.textContent='Send My Free Guides';
+      lcMsg('err','Something went wrong — please try again or email guide@lodestarcareers.co');
+    });
+  });
+})();
 </script>
 </body>
 </html>
