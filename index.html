@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lodestar, Your career lodestar</title>
+<title>Lodestar | Where Your Career Finds Direction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -477,6 +477,11 @@
   .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23726E92' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:42px}
   @media(max-width:640px){.book-name-row{grid-template-columns:1fr}}
 
+  /* ---------- NAV SOON BADGE ---------- */
+  .nav-soon{display:inline-flex;align-items:center;font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--grad-soft);border:1px solid var(--line-2);color:var(--muted);padding:2px 7px;border-radius:100px;margin-left:5px;vertical-align:middle}
+  .navlink-inactive{color:var(--dim);background:none;border:none;font-family:inherit;font-size:.93rem;font-weight:500;cursor:default;position:relative;padding:4px 0}
+  .btn-soon{background:rgba(237,234,247,.03);color:var(--dim);border:1px solid var(--line);cursor:default;opacity:.7}
+
 </style>
 </head>
 <body>
@@ -492,6 +497,7 @@
       <button class="navlink" data-go="home">Home</button>
       <button class="navlink" data-go="services">Services</button>
       <button class="navlink" data-go="how">How it works</button>
+      <span class="navlink-inactive">Library<span class="nav-soon">Soon</span></span>
       <button class="navlink" data-go="about">Who we are</button>
       <button class="navlink" data-go="stories">Stories</button>
       <button class="navlink" id="signinLink">Sign in</button>
@@ -512,10 +518,11 @@
     <div class="wrap">
       <span class="hero-tag reveal"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.8 9.2H24l-7.6 5.5 2.9 9.3L12 19l-7.3 5 2.9-9.3L0 9.2h9.2z"/></svg> Real guidance, not another bot</span>
       <h1 class="reveal d1">Find your direction.<span class="l2 grad-text">Own your story.</span></h1>
-      <p class="sub reveal d2">Most people send hundreds of applications and hear nothing back. That&#8217;s not a you problem, it&#8217;s a positioning problem. We fix how the world sees you: your story, your voice, your presence across every platform that matters. Then we stand beside you, from first draft to final offer and beyond.</p>
+      <p class="sub reveal d2">We fix how the world sees you: your story, your voice, your presence across every platform that matters. Your story is the asset. Most people are burying it. We are a real partner who reads what makes you worth knowing and makes sure the right people see it, across your resume, your LinkedIn, your portfolio, your pitch, your job search strategy, and the way you carry yourself into every room. Whether you are just starting out, rebuilding after a setback, making your boldest move yet, or turning an idea into something real. One partner. Every stage.</p>
       <div class="hero-cta reveal d3">
         <button class="btn btn-primary" data-go="book">Book your free consultation</button>
         <button class="btn btn-ghost" data-go="services">See what we do</button>
+        <span class="btn btn-soon">Create a free account &amp; unlock the library <span class="nav-soon">Soon</span></span>
       </div>
       <div class="reassure reveal d3">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#2ECBF2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#2ECBF2" stroke-width="2.2"/></svg>
@@ -536,8 +543,8 @@
           <div class="eyebrow m" style="margin-bottom:16px">Why the AI tools let you down</div>
           <h2 style="margin-bottom:18px">You tried the AI tools. So did everyone else.</h2>
           <p class="big grad-text" style="margin-bottom:18px">A tool in untrained hands doesn't help you stand out, it helps you blend in.</p>
-          <p style="margin-bottom:14px">The same handful of AI tools are now in everyone's browser. A tool is only as good as the person wielding it, and <strong>without real skill, they all produce the same flat, generic CV.</strong> Recruiters are drowning in near-identical, obviously AI-written resumes that say nothing and sound like no one.</p>
-          <p>We use AI too, but we actually know <em>how</em> to wield it. The result sounds like the best version of <strong>you</strong>, not a template the algorithm handed to ten thousand other people.</p>
+          <p style="margin-bottom:14px">The same handful of AI tools are now in everyone&#8217;s browser. Every candidate is using them. Every resume is starting to sound the same, confident, competent, and completely interchangeable. Every LinkedIn profile hits the same beats. Every portfolio site uses the same layout. Recruiters and clients are drowning in near-identical output that says nothing and sounds like no one. When the tool is universal, the output is average by definition.</p>
+          <p>We use AI too, but we actually know how to wield it. We know what produces something worth reading, what needs a human edit, and where the tool ends and the real work begins. The result sounds like the best version of you, not a template handed to ten thousand other people. And it extends far beyond your resume: your LinkedIn, your portfolio, your website, your pitch, your interview answers, your whole presence can either be shaped with skill or left to chance.</p>
         </div>
         <div style="position:relative;min-height:380px;overflow:hidden;border-radius:0 26px 26px 0">
           <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80&auto=format&fit=crop"
@@ -553,27 +560,33 @@
     <div class="wrap">
       <div class="reveal">
         <div class="eyebrow">The honest truth</div>
-        <h2 class="sec-title">A score and silence, or a template by email. Neither one <span class="grad-text">guides you.</span></h2>
+        <h2 class="sec-title">You have been given tools and called it support. It was never <span class="grad-text">enough.</span></h2>
       </div>
       <div class="contrast-grid">
         <div class="ccard them reveal d1">
-          <h3>&#10007; What you've tried</h3>
+          <h3>&#10007; What you&#8217;ve tried</h3>
           <ul>
-            <li>AI tools that hand everyone the same generic CV</li>
+            <li>AI tools that hand everyone the same generic resume</li>
             <li>A match score, then total silence</li>
-            <li>Software you'll cancel in a month</li>
-            <li>Five disconnected apps, no one who knows you</li>
-            <li>Advice that vanishes the moment you're hired</li>
+            <li>Software subscriptions you cancel in a month</li>
+            <li>Five disconnected apps, no one who actually knows you</li>
+            <li>A LinkedIn profile no one is reading</li>
+            <li>A website built from a free template that looks like everyone else&#8217;s</li>
+            <li>Job applications sent into a void</li>
+            <li>Advice that disappears the moment you are hired</li>
           </ul>
         </div>
         <div class="ccard us reveal d2">
           <h3>&#10003; What we do instead</h3>
           <ul>
-            <li>A real person who reads your story and guides it</li>
-            <li>Tools wielded with genuine skill, not on autopilot</li>
-            <li>Pay only once you've seen it's worth it</li>
-            <li>One partner across resume &middot; LinkedIn &middot; interview &middot; roadmap</li>
-            <li>Support before <em>and</em> after you land the role</li>
+            <li>A real person who reads your story and shapes it</li>
+            <li>Tools used with genuine skill, not on autopilot</li>
+            <li>Pay only once you have seen it is worth it</li>
+            <li>One partner across resume, LinkedIn, interview, strategy, and beyond</li>
+            <li>A presence that gets you found: profile, portfolio, and website, all working together</li>
+            <li>A search strategy, not just a submission process</li>
+            <li>Support before and long after you land the role</li>
+            <li>Someone who is still there after the offer letter</li>
           </ul>
         </div>
       </div>
@@ -585,7 +598,7 @@
       <div class="reveal">
         <div class="eyebrow">What we do</div>
         <h2 class="sec-title">Wherever you are, <span class="grad-text">we meet you there.</span></h2>
-        <p class="sec-lead">From your very first resume to a senior move or a business of your own, every path starts with a free consultation.</p>
+        <p class="sec-lead">Whether you are just starting out, stuck in a search that is not working, ready for a bigger move, or building something of your own, every path starts with an honest conversation. We work across the full arc: your documents, your digital presence, your pitch, your strategy, and your confidence. The same partner, every step of the way.</p>
       </div>
       <div class="svc-grid">
         <div class="svc reveal d1"><div class="ic">CV</div><h3>Resume writing</h3><p>A resume that reads like you at your best, and clears the ATS filters on the way in.</p></div>
@@ -675,20 +688,20 @@
   <section style="padding-top:72px">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">Services</div>
-        <h2 class="sec-title">Everything you need, from <span class="grad-text">one partner who knows you.</span></h2>
-        <p class="sec-lead">Pick where you are. Every engagement opens with a free consultation, so you only pay for what genuinely fits.</p>
+        <div class="eyebrow">What we offer</div>
+        <h2 class="sec-title">Every service built around <span class="grad-text">your story.</span></h2>
+        <p class="sec-lead">From your first resume to a business website to the operating system of your professional life, everything we do is designed to make you clearer, sharper, and harder to ignore.</p>
       </div>
       <div class="svc-grid">
-        <div class="svc reveal"><div class="svc-head"><div class="ic">CV</div><div class="num">01</div></div><h3>Resume writing</h3><p>A professionally written resume that reads like the best version of you and clears ATS filters, crafted, never auto-generated.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic">in</div><div class="num">02</div></div><h3>LinkedIn optimization</h3><p>Headline, About, and experience rewritten so recruiters stop scrolling and start reaching out.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div class="num">03</div></div><h3>Cover letter writing</h3><p>Tailored to the specific role, drawing on your real story and the job description.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9l10 13L22 9z"/></svg></div><div class="num">04</div></div><h3>Job seeking support</h3><p>The full toolkit for getting in front of employers.</p><div class="detail">Landing interviews · interview preparation · job-seeking techniques · navigating career portals · the tips &amp; tricks that make you stand out.</div></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg></div><div class="num">05</div></div><h3>Career coaching</h3><p>The deep work, beyond tactics, toward direction.</p><div class="detail">Find your calling · start from scratch · unleash the giant within · get that promotion · elevate your career · start your own business.</div><span class="svc-tag">Signature</span></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div class="num">06</div></div><h3>LinkedIn onboarding &amp; training</h3><p>For people who've never used LinkedIn, from setup to confident, active use you can run yourself.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="num">07</div></div><h3>Portfolio creation</h3><p>A professional, shareable portfolio.</p><div class="detail">Keep editing access to update it yourself whenever you like, or hand it off and let us maintain it for you.</div></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><div class="num">08</div></div><h3>Roadmap, pre &amp; post job</h3><p>A plan for landing it, and a system for thriving in it.</p><div class="detail"><b>Pre:</b> how &amp; where to apply · application tracker · follow-up cadence · LinkedIn Premium strategy.<br><br><b>Post:</b> a Notion productivity hub for tasks &amp; projects · skill-gap analysis · recommended courses &amp; certifications · conferences · milestones.</div><span class="svc-tag">Signature</span></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div><div class="num">09</div></div><h3>AI resume scan &amp; rewrite</h3><p>Instant and AI-powered, but guided by people who know how to prompt it well, so it's sharp, not generic.</p></div>
+        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><div class="num">01</div></div><h3>Career Roadmap</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The foundation</p><p>Before you write a single word or send a single application, you need clarity. Where are you actually going? What story are you telling? What makes you the obvious choice? The Career Roadmap is a full strategic session where we define your positioning, identify your target, and build the plan that makes everything else coherent and compelling: your resume, your LinkedIn, your pitch. And it does not stop when you land the role. We help you build your roadmap inside a new position too: how you grow, how you document your impact, and how you set yourself up for what comes next.</p></div>
+        <div class="svc feature reveal"><div class="svc-head"><div class="ic">CV</div><div class="num">02</div></div><h3>Resume Writing</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your first impression</p><p>Most resumes list what you did. Yours will show what you changed, what you built, and why it mattered. We write it from scratch, no templates, no filler, no generic bullet points dressed up with action verbs. Every line is written to position you precisely for the role you want, in the voice of someone who actually knows their value. Because a recruiter drowning in near-identical documents will stop at yours.</p><span class="svc-tag">Signature</span></div>
+        <div class="svc feature reveal"><div class="svc-head"><div class="ic">in</div><div class="num">03</div></div><h3>LinkedIn Profile Overhaul</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your digital presence</p><p>LinkedIn is no longer optional. It is where recruiters verify you, where opportunities find you, and where your professional story lives permanently. We rewrite your headline, summary, and experience to do three things: rank in search, communicate your value instantly, and make the right people want to reach out. Your profile should be opening doors, not closing them.</p><span class="svc-tag">Signature</span></div>
+        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg></div><div class="num">04</div></div><h3>Career Coaching</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The partner in your corner</p><p>Sometimes what you need is not another document, it is someone who will sit with you, understand where you actually are, and help you think through what comes next with honesty and without judgment. Career Coaching is ongoing, structured support for the moments that matter: a pivot you are unsure about, a role you are doubting, a version of yourself you are trying to build. We work on how you think, how you communicate, and how you show up, because those are the things that actually determine where you end up.</p><span class="svc-tag">Signature</span></div>
+        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9l10 13L22 9z"/></svg></div><div class="num">05</div></div><h3>Interview Prep &amp; Job Search Strategy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">From search to offer</p><p>Most job searches fail not because of qualifications, but because of approach and performance. We fix both. We build a targeted search strategy around your positioning, the right companies, the right roles, the right outreach, and we run full mock interview sessions to make sure you are ready when the room matters. How you structure your answers, how you carry yourself, how you close. You will not just be prepared. You will be the candidate they cannot stop thinking about.</p><span class="svc-tag">Signature</span></div>
+        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="num">06</div></div><h3>Personal Portfolio Website</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your corner of the internet</p><p>For professionals who want to stand out, a personal portfolio site is no longer a nice-to-have. It is the one place where your story, your work, your voice, and your personality live together, fully in your control. We design and build yours from scratch: clean, fast, memorable, and written to position you exactly the way you want to be seen. Whether you are a designer, a PM, an engineer, or a consultant, you deserve a home on the internet.</p></div>
+        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="num">07</div></div><h3>Business Website</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">For businesses ready to be seen</p><p>A business without a proper web presence is invisible. We build websites for small businesses, startups, and independent operators who need more than a template, they need a site that communicates credibility, converts visitors, and reflects the real quality of what they offer. From the copy to the design to the structure, every decision is made with your customer in mind.</p></div>
+        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><div class="num">08</div></div><h3>Digital Product Strategy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">From idea to roadmap</p><p>Whether you are an entrepreneur with a product concept, a founder preparing for development, or a team that needs clarity before building, we turn ideas into structured plans. We facilitate MVP scoping, define the product vision, write the PRD, map the user flows, and prepare everything a development team needs to execute. No vague briefs. No wasted sprints. Just a clear, defensible plan you can actually build from.</p></div>
+        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="num">09</div></div><h3>Notion Consultancy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The operating system for your life and work</p><p>I did not just start using Notion. I rebuilt my entire professional and personal life inside it. My job search. My career documentation. My learning systems. My project tracking. My thinking. Every part of how I operate runs through a Notion workspace I designed from scratch, and over time, it became the single most powerful productivity shift I have ever made. I now help individuals and teams do the same: build a Notion system that actually fits how they think, eliminates the chaos, and becomes the operating system they never knew they needed. If your digital life feels scattered, this is where we fix it.</p><span class="svc-tag">Signature</span></div>
       </div>
       <div style="margin-top:52px" class="reveal">
         <div class="strip glass">
@@ -752,8 +765,9 @@
       <div class="eyebrow reveal">Who we are</div>
       <p class="about-lead reveal d1">We exist to <span class="grad-text">transform lives</span>. One honest conversation, one career, one calling at a time.</p>
       <div class="about-body reveal d2">
-        <p>Lodestar is a career partner, not a vending machine. We were born from a simple belief: that finding the right work is one of the most life-changing things a person can do, and that nobody should have to do it alone, armed only with generic tools and guesswork.</p>
-        <p>So we built something more human. We combine the speed of AI, used with real skill, not on autopilot, with sincere, genuine guidance from someone who has actually lived the job hunt, fought through the setbacks, and come out the other side. No templates pretending to be advice. No disappearing once the invoice is paid. Just a real partner committed to your growth, before and long after the offer letter.</p>
+        <p>Lodestar is a career partner, not a vending machine. We were born from a simple belief: that finding the right work is one of the most life-changing things a person can do, and that nobody should have to navigate it alone, armed only with generic tools and recycled advice.</p>
+        <p>So we built something more human. We combine the precision of AI, used with real skill and not on autopilot, with sincere and honest guidance from someone who has actually lived the full arc of it: the rejections, the pivots, the rebuilds, and the breakthroughs. Someone who engineered a career move from nothing, who coached themselves relentlessly through every setback, who documented every lesson with brutal honesty, and who made it their life&#8217;s work to make sure others do not have to figure it out alone.</p>
+        <p>No templates pretending to be strategy. No disappearing once the invoice is paid. No recycled frameworks dressed up as personalised advice. Just a real partner who is genuinely invested in your outcome, before the offer, and long after.</p>
       </div>
     </div>
   </section>
@@ -764,12 +778,12 @@
         <div class="mv mission reveal d1">
           <div class="label">Our mission</div>
           <h3>Transform lives through real guidance.</h3>
-          <p>To give every person, at every stage, sincere, genuine career support that helps them find and pursue their calling, not just their next paycheck. To make honest, human guidance accessible where the industry offers only cold tools or costly templates.</p>
+          <p>To give every person, at every stage, honest and sincere career support that helps them find and pursue their calling, not just their next paycheck. To make genuine human guidance accessible where the industry offers only cold tools or overpriced templates.</p>
         </div>
         <div class="mv vision reveal d2">
           <div class="label">Our vision</div>
           <h3>A world where no one navigates alone.</h3>
-          <p>A future where nobody settles for "good enough," where everyone has a trusted partner in their corner, and where finding meaningful work is a journey of growth, not a lonely, anxious gamble.</p>
+          <p>A future where nobody settles for good enough. Where everyone has a trusted partner in their corner. Where finding meaningful work is a journey of growth, not a lonely, anxious gamble.</p>
         </div>
       </div>
     </div>
@@ -791,7 +805,7 @@
             <p>And through all of it, I kept showing up for the people around me. Helping friends rewrite their stories, land interviews, find direction. That pattern became impossible to ignore. It became a calling.</p>
             <p class="pull">"I have lived the rejections and the breakthroughs, from both sides. What I offer is not a template. It is the clarity and honesty I wish someone had given me."</p>
             <p>That is what Lodestar is. Not a service. A commitment. Your story, told properly, from the first draft to the day you accept the offer.</p>
-            <div class="founder-links">
+            <div class="founder-links" style="justify-content:center;">
               <a href="https://www.linkedin.com/in/rayan-khattar" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.38-3.9-2.38 0-2.75 1.86-2.75 3.78V24h-4V8z"/></svg>
                 Connect on LinkedIn
@@ -845,7 +859,7 @@
       <div class="reveal">
         <div class="eyebrow">Free consultation</div>
         <h2 class="sec-title">Let&#8217;s find <span class="grad-text">your calling.</span></h2>
-        <p class="sec-lead" style="margin-top:0">Tell me a little about where you are and what you&#8217;re looking for. This is a no-pressure, 25-minute conversation &#8212; no pitch, no templates, just clarity.</p>
+        <p class="sec-lead" style="margin-top:0">Tell me a little about where you are and what you&#8217;re looking for. This is a no-pressure, 25-minute conversation, no pitch, no templates, just clarity.</p>
       </div>
     </div>
   </section>
@@ -873,7 +887,7 @@
           <label for="b-help">What would you like help with?</label>
           <select id="b-help">
             <option value="">Select one&hellip;</option>
-            <option>Career Roadmap &#8212; full strategy and positioning plan</option>
+            <option>Career Roadmap: full strategy and positioning plan</option>
             <option>CV and Resume Writing</option>
             <option>LinkedIn Profile Overhaul</option>
             <option>Cover Letter Writing</option>
@@ -881,7 +895,7 @@
             <option>Job Search Strategy</option>
             <option>Personal Branding</option>
             <option>Career Coaching Sessions</option>
-            <option>Not sure yet &#8212; let&#8217;s talk it through</option>
+            <option>Not sure yet, let&#8217;s talk it through</option>
           </select>
         </div>
         <div class="field"><label for="b-msg">Anything else? (optional)</label><textarea id="b-msg" placeholder="Tell me a little about where you are and what you&#8217;re hoping for&#8230;"></textarea></div>
@@ -998,7 +1012,7 @@
     <div class="foot-inner">
       <div class="foot-col">
         <button class="brand" data-go="home" style="margin-bottom:12px"><img src="logo.png" class="logo-img" alt="Lodestar"/><span class="wordmark">Lodestar</span></button>
-        <div class="foot-tag serif-i">Your career lodestar.</div>
+        <div class="foot-tag serif-i">Where your career finds direction.</div>
         <p style="font-size:.9rem;color:var(--muted)">Real guidance, fair pricing, and AI used with genuine skill, to help you find not just a job, but your calling.</p>
       </div>
       <div class="foot-col" style="max-width:none">
@@ -1018,7 +1032,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 Lodestar, Your career lodestar.</span>
+      <span>&copy; 2026 Lodestar. Where your career finds direction.</span>
       <span><button data-go="legal" style="background:none;border:none;color:var(--muted);font-family:inherit;font-size:.84rem;cursor:pointer;padding:0;text-decoration:underline">Privacy &amp; Terms</button> · Transforming lives, one calling at a time.</span>
     </div>
   </div>
