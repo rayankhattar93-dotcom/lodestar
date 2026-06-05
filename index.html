@@ -1116,30 +1116,9 @@
   document.getElementById('lc-btn').addEventListener('click',function(){
     var name=document.getElementById('lc-fname').value.trim();
     var email=document.getElementById('lc-email').value.trim();
-    var btn=document.getElementById('lc-btn');
-    if(!name){lcMsg('err','Please enter your first name.');return;}
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){lcMsg('err','Please enter a valid email address.');return;}
-    btn.disabled=true;
-    btn.textContent='Sending…';
-    fetch('https://brevo-proxy.rayankhattar93.workers.dev',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({firstName:name,email:email,listId:LC_LIST})
-    })
-    .then(function(r){
-      if(r.ok){
-        lcMsg('ok','Check your inbox — your guides are on the way.');
-        btn.textContent='Guides sent ✓';
-        lcDownload();
-      } else {
-        return r.json().then(function(d){throw new Error(d.message||'Unexpected error');});
-      }
-    })
-    .catch(function(){
-      btn.disabled=false;
-      btn.textContent='Send My Free Guides';
-      lcMsg('err','Something went wrong — please try again or email guide@lodestarcareers.co');
-    });
+    var body='Hi, my name is '+name+' and I would like to receive the free guides. My email is '+email+'.';
+    var mailtoUrl='mailto:guide@lodestarcareers.co?subject='+encodeURIComponent('Free Guides Request')+'&body='+encodeURIComponent(body);
+    window.location.href=mailtoUrl;
   });
 })();
 </script>
