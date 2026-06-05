@@ -469,6 +469,20 @@
   .lc-msg.lc-ok{display:block;background:rgba(46,203,242,.1);border:1px solid rgba(46,203,242,.4);color:var(--cyan)}
   .lc-msg.lc-err{display:block;background:rgba(248,95,168,.1);border:1px solid rgba(248,95,168,.35);color:var(--magenta)}
   .lc-note{font-size:.8rem;color:var(--dim);text-align:center;margin-top:12px}
+  .lc-email-col{display:flex;flex-direction:column}
+  .lc-email-err,.lc-api-err{display:none;font-size:.8rem;color:#f0836b;margin-top:6px;padding:0 2px;line-height:1.4;text-align:left}
+  .lc-email-err.show,.lc-api-err.show{display:block}
+  @keyframes lcPulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .lc-btn.lc-launching{animation:lcPulse 1.3s ease-in-out infinite}
+  .lc-success{display:none;text-align:center;padding:8px 0}
+  .lc-success.show{display:block;animation:lcFadeUp .55s cubic-bezier(.22,1,.36,1) both}
+  @keyframes lcFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .lc-success-icon{margin-bottom:20px;display:flex;justify-content:center}
+  .lc-success-hl{font-family:'Bricolage Grotesque',sans-serif;font-size:1.55rem;font-weight:700;margin:0 0 14px;line-height:1.25;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lc-success-body{color:var(--muted);font-size:.93rem;line-height:1.6;margin:0 0 10px}
+  .lc-success-body2{color:var(--dim);font-size:.85rem;line-height:1.5;margin:0}
+  .lc-back-btn{margin-top:22px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:.88rem;padding:11px 28px;border-radius:100px;border:1px solid rgba(248,95,168,.5);background:transparent;color:var(--magenta);cursor:pointer;transition:background .2s,border-color .2s}
+  .lc-back-btn:hover{background:rgba(248,95,168,.1);border-color:var(--magenta)}
   @media(max-width:720px){.lc-cards{grid-template-columns:1fr}}
   @media(max-width:640px){.lc-section{padding:22px 0 52px}.lc-row{grid-template-columns:1fr}.lc-form-wrap{padding:22px 18px}}
 
@@ -661,13 +675,28 @@
           </div>
         </div>
         <div class="lc-form-wrap reveal d4">
-          <div class="lc-row">
-            <input class="lc-inp" type="text" id="lc-fname" placeholder="First name" autocomplete="given-name">
-            <input class="lc-inp" type="email" id="lc-email" placeholder="Email address" autocomplete="email">
+          <div id="lc-form-card">
+            <div class="lc-row">
+              <input class="lc-inp" type="text" id="lc-fname" placeholder="First name" autocomplete="given-name">
+              <div class="lc-email-col">
+                <input class="lc-inp" type="email" id="lc-email" placeholder="Email address" autocomplete="email">
+                <div class="lc-email-err" id="lc-email-err" role="alert"></div>
+              </div>
+            </div>
+            <button class="lc-btn" id="lc-btn">Send My Free Guides</button>
+            <div class="lc-api-err" id="lc-api-err" role="alert"></div>
+            <div class="lc-msg" id="lc-msg" role="alert"></div>
+            <p class="lc-note">No spam, ever. Unsubscribe any time.</p>
           </div>
-          <button class="lc-btn" id="lc-btn">Send My Free Guides</button>
-          <div class="lc-msg" id="lc-msg" role="alert"></div>
-          <p class="lc-note">No spam, ever. Unsubscribe any time.</p>
+          <div class="lc-success" id="lc-success" aria-live="polite">
+            <div class="lc-success-icon">
+              <svg width="56" height="56" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lcStarGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F85FA8"/><stop offset="52%" stop-color="#A24DD6"/><stop offset="100%" stop-color="#2ECBF2"/></linearGradient></defs><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#lcStarGrad)"/></svg>
+            </div>
+            <h3 class="lc-success-hl" id="lc-success-hl"></h3>
+            <p class="lc-success-body" id="lc-success-body"></p>
+            <p class="lc-success-body2">While you wait, take a look around. Your next move might already be on this page.</p>
+            <button class="lc-back-btn" id="lc-back-btn">Back to exploring</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1090,35 +1119,80 @@
 </script>
 <script>
 (function(){
-  var LC_LIST=3;
-  var LC_PDFS=[
-    'resources/Lodestar_CV_Checklist.pdf',
-    'resources/Lodestar_Job_Search_Roadmap.pdf',
-    'resources/Lodestar_LinkedIn_Audit.pdf'
-  ];
-  function lcDownload(){
-    LC_PDFS.forEach(function(p,i){
-      setTimeout(function(){
-        var a=document.createElement('a');
-        a.href=p;
-        a.download=p.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      },i*400);
-    });
-  }
-  function lcMsg(type,text){
-    var el=document.getElementById('lc-msg');
-    el.className='lc-msg '+(type==='ok'?'lc-ok':'lc-err');
-    el.textContent=text;
-  }
-  document.getElementById('lc-btn').addEventListener('click',function(){
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var emailErr=document.getElementById('lc-email-err');
+  var apiErr=document.getElementById('lc-api-err');
+  var btn=document.getElementById('lc-btn');
+  var formCard=document.getElementById('lc-form-card');
+  var successPanel=document.getElementById('lc-success');
+  var successHl=document.getElementById('lc-success-hl');
+  var successBody=document.getElementById('lc-success-body');
+
+  document.getElementById('lc-email').addEventListener('input',function(){
+    emailErr.textContent='';
+    emailErr.classList.remove('show');
+  });
+
+  btn.addEventListener('click',function(){
     var name=document.getElementById('lc-fname').value.trim();
     var email=document.getElementById('lc-email').value.trim();
-    var body='Hi, my name is '+name+' and I would like to receive the free guides. My email is '+email+'.';
-    var mailtoUrl='mailto:guide@lodestarcareers.co?subject='+encodeURIComponent('Free Guides Request')+'&body='+encodeURIComponent(body);
-    window.location.href=mailtoUrl;
+
+    apiErr.textContent='';
+    apiErr.classList.remove('show');
+
+    if(!emailRe.test(email)){
+      emailErr.textContent='That email looks a little lost in space. Double-check your coordinates and try again.';
+      emailErr.classList.add('show');
+      return;
+    }
+
+    btn.disabled=true;
+    btn.textContent='Launching...';
+    btn.classList.add('lc-launching');
+
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        access_key:'YOUR_WEB3FORMS_ACCESS_KEY',
+        name:name,
+        email:email,
+        subject:'New Free Guides Request — Lodestar',
+        message:'Name: '+name+', Email: '+email+' has requested the free career guides.'
+      })
+    })
+    .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
+    .then(function(res){
+      if(res.ok&&res.data.success){
+        successHl.textContent='You’re on our radar, '+name+'.';
+        successBody.textContent='Three guides are heading to '+email+' at warp speed. Check your inbox — and your spam folder, in case mission control gets flagged.';
+        formCard.style.display='none';
+        successPanel.classList.add('show');
+      } else {
+        throw new Error(res.data.message||'API error');
+      }
+    })
+    .catch(function(){
+      btn.disabled=false;
+      btn.textContent='Send My Free Guides';
+      btn.classList.remove('lc-launching');
+      apiErr.textContent='Mission control had a hiccup. Try again or reach us at guide@lodestarcareers.co';
+      apiErr.classList.add('show');
+    });
+  });
+
+  document.getElementById('lc-back-btn').addEventListener('click',function(){
+    successPanel.classList.remove('show');
+    formCard.style.display='';
+    document.getElementById('lc-fname').value='';
+    document.getElementById('lc-email').value='';
+    emailErr.textContent='';
+    emailErr.classList.remove('show');
+    apiErr.textContent='';
+    apiErr.classList.remove('show');
+    btn.disabled=false;
+    btn.textContent='Send My Free Guides';
+    btn.classList.remove('lc-launching');
   });
 })();
 </script>
