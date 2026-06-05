@@ -1155,21 +1155,26 @@
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
         access_key:'3b841970-9d90-4ce5-a900-5974ccf1e45b',
+        botcheck:false,
         name:name,
         email:email,
-        subject:'New Free Guides Request — Lodestar',
+        subject:'New Free Guides Request - Lodestar',
         message:'Name: '+name+', Email: '+email+' has requested the free career guides.'
       })
     })
     .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
     .then(function(res){
-      if(res.ok&&res.data.success){
-        successHl.textContent='You’re on our radar, '+name+'.';
-        successBody.textContent='Three guides are heading to '+email+' at warp speed. Check your inbox — and your spam folder, in case mission control gets flagged.';
+      if(res.data.success){
+        successHl.textContent='You\u2019re on our radar, '+name+'.';
+        successBody.textContent='Three guides are heading to '+email+' at warp speed. Check your inbox and your spam folder, in case mission control gets flagged.';
         formCard.style.display='none';
         successPanel.classList.add('show');
       } else {
-        throw new Error(res.data.message||'API error');
+        btn.disabled=false;
+        btn.textContent='Send My Free Guides';
+        btn.classList.remove('lc-launching');
+        apiErr.textContent=res.data.message||'Mission control had a hiccup. Try again or reach us at guide@lodestarcareers.co';
+        apiErr.classList.add('show');
       }
     })
     .catch(function(){
