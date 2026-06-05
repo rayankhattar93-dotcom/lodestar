@@ -1049,6 +1049,7 @@
     pages.forEach(p=>document.getElementById('page-'+p).classList.toggle('active',p===page));
     document.querySelectorAll('.navlink').forEach(l=>l.classList.toggle('active',l.dataset.go===page));
     navLinksWrap.classList.remove('open');
+    if(page==='home'){var m=document.getElementById('lc-msg');if(m){m.className='lc-msg';m.textContent='';}}
     window.scrollTo({top:0});
     requestAnimationFrame(observeReveals);
   }
