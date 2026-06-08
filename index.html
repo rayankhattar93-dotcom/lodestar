@@ -1150,17 +1150,10 @@
     btn.textContent='Launching...';
     btn.classList.add('lc-launching');
 
-    fetch('https://api.web3forms.com/submit',{
+    fetch('https://resend-proxy.rayankhattar93.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({
-        access_key:'3b841970-9d90-4ce5-a900-5974ccf1e45b',
-        botcheck:false,
-        name:name,
-        email:email,
-        subject:'New Free Guides Request - Lodestar',
-        message:'Name: '+name+', Email: '+email+' has requested the free career guides.'
-      })
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name,email:email})
     })
     .then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
     .then(function(res){
