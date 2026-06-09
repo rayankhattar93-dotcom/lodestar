@@ -515,8 +515,7 @@
       <span class="navlink-inactive">Library<span class="nav-soon">Soon</span></span>
       <button class="navlink" data-go="about">Who we are</button>
       <button class="navlink" data-go="stories">Stories</button>
-      <button class="navlink" id="signinLink">Sign in</button>
-      <button class="btn btn-primary" data-go="book">Book free consultation</button>
+      <button class="navlink" id="signinLink" style="display:inline-flex;align-items:center;gap:6px;margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign in</button>
     </div>
   </div>
 </nav>
@@ -598,10 +597,8 @@
         <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">A search strategy, not just a submission process</div>
         <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Job applications sent into a void</div>
         <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">Support before and long after you land the role</div>
-        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Advice that disappears the moment you are hired</div>
+        <div style="background:rgba(237,234,247,.03);border:1px solid var(--line);border-top:none;border-radius:0 0 22px 22px;padding:10px 30px;font-size:.97rem;color:var(--dim)">Advice that disappears the moment you are hired</div>
         <div style="background:var(--grad-soft);border:1px solid rgba(248,95,168,.35);border-top:none;border-radius:0 0 22px 22px;padding:10px 30px;font-size:.97rem;color:var(--text);box-shadow:0 0 50px -6px rgba(248,95,168,.5)">Someone who is still there after the offer letter</div>
-        <div style="background:rgba(237,234,247,.03);border:1px solid var(--line);border-top:none;border-radius:0 0 22px 22px;padding:10px 30px;font-size:.97rem;color:var(--dim)">Certifications that look good on paper but open no doors</div>
-        <div></div>
       </div>
     </div>
   </section>
@@ -628,9 +625,9 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lib reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;padding:0;position:relative">
-        <span style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:rgba(224,64,251,0.15);color:#E040FB;border:1px solid rgba(224,64,251,0.4);border-radius:20px;padding:4px 14px;z-index:10">Coming Soon</span>
+        <span style="position:absolute;top:16px;right:16px;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:rgba(224,64,251,0.15);color:#E040FB;border:1px solid rgba(224,64,251,0.4);border-radius:20px;padding:4px 14px;z-index:10;">Coming Soon</span>
         <div class="lib-inner" style="padding:44px">
-          <div class="eyebrow">Members </div>
+          <div class="eyebrow">EXCLUSIVE MEMBERS</div>
           <h2>Create a free account &amp; unlock the library.</h2>
           <p>Your career, beyond the offer. Create a free account for exclusive access to our member library: curated templates, recommended courses, interview prep banks, and field-specific learning paths. Members only.</p>
           <div class="lib-feats">
@@ -716,7 +713,7 @@
 <div class="page" id="page-services">
   <section style="padding-top:72px">
     <div class="wrap">
-      <div class="reveal">
+      <div class="reveal" style="text-align:center;margin-left:auto;margin-right:auto">
         <div class="eyebrow">What we offer</div>
         <h2 class="sec-title">Every service built around <span class="grad-text">your story.</span></h2>
         <p class="sec-lead">From your first resume to a business website to the operating system of your professional life, everything we do is designed to make you clearer, sharper, and harder to ignore.</p>
@@ -903,28 +900,30 @@
         <div class="field">
           <label for="b-stage">Where are you right now?</label>
           <select id="b-stage">
-            <option value="">Select one&hellip;</option>
-            <option>Looking for my first job or breaking into a new field</option>
-            <option>Actively job searching but not getting results</option>
-            <option>Employed but ready for something better</option>
-            <option>Considering a career pivot or industry change</option>
-            <option>Returning to work after a break</option>
-            <option>Exploring, not sure where to start</option>
+            <option value="" disabled selected>Select one...</option>
+            <option value="starting-out">Just starting my career</option>
+            <option value="looking-to-switch">Employed but looking to switch roles</option>
+            <option value="job-searching">Actively job searching</option>
+            <option value="between-jobs">Recently laid off or between jobs</option>
+            <option value="new-industry">Transitioning to a new industry</option>
+            <option value="returning">Returning to work after a break</option>
+            <option value="freelancing">Freelancing or self-employed</option>
+            <option value="building-business">Building a business or side project</option>
           </select>
         </div>
         <div class="field">
           <label for="b-help">What would you like help with?</label>
           <select id="b-help">
-            <option value="">Select one&hellip;</option>
-            <option>Career Roadmap: full strategy and positioning plan</option>
-            <option>CV and Resume Writing</option>
-            <option>LinkedIn Profile Overhaul</option>
-            <option>Cover Letter Writing</option>
-            <option>Interview Preparation and Coaching</option>
-            <option>Job Search Strategy</option>
-            <option>Personal Branding</option>
-            <option>Career Coaching Sessions</option>
-            <option>Not sure yet, let&#8217;s talk it through</option>
+            <option value="" disabled selected>Select one...</option>
+            <option value="career-roadmap">Career Roadmap</option>
+            <option value="resume-writing">Resume Writing</option>
+            <option value="linkedin-overhaul">LinkedIn Profile Overhaul</option>
+            <option value="career-coaching">Career Coaching</option>
+            <option value="interview-prep">Interview Prep &amp; Job Search Strategy</option>
+            <option value="portfolio-website">Personal Portfolio Website</option>
+            <option value="business-website">Business Website</option>
+            <option value="digital-product-strategy">Digital Product Strategy</option>
+            <option value="notion-consultancy">Notion Consultancy</option>
           </select>
         </div>
         <div class="field"><label for="b-msg">Anything else? (optional)</label><textarea id="b-msg" placeholder="Tell me a little about where you are and what you&#8217;re hoping for&#8230;"></textarea></div>
