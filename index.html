@@ -123,7 +123,7 @@
   .ccard.them li{color:var(--dim)}
   .ccard.us li{color:var(--text)}
   .ccard li:last-child{border:none}
-  @media(max-width:720px){.contrast-grid{grid-template-columns:1fr}}
+  @media(max-width:720px){.contrast-grid{grid-template-columns:1fr}.contrast-grid>:nth-child(odd){order:1}.contrast-grid>:nth-child(even){order:2}.contrast-grid>:nth-child(2){margin-top:14px}}
 
   /* ---------- SERVICES ---------- */
   .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
@@ -577,34 +577,31 @@
         <div class="eyebrow">The honest truth</div>
         <h2 class="sec-title">You have been given tools and called it support. It was never <span class="grad-text">enough.</span></h2>
       </div>
-      <div class="contrast-grid">
-        <div class="ccard them reveal d1" style="align-self:start">
-          <h3>&#10007; What you&#8217;ve tried</h3>
-          <ul>
-            <li>AI tools that hand everyone the same generic resume</li>
-            <li>A match score, then total silence</li>
-            <li>Software subscriptions you cancel in a month</li>
-            <li>Five disconnected apps, no one who actually knows you</li>
-            <li>A LinkedIn profile no one is reading</li>
-            <li>A website built from a free template that looks like everyone else&#8217;s</li>
-            <li>Job applications sent into a void</li>
-            <li>Advice that disappears the moment you are hired</li>
-            <li>Certifications that look good on paper but open no doors</li>
-          </ul>
+      <div class="contrast-grid" style="row-gap:0">
+        <div class="reveal d1" style="background:rgba(237,234,247,.03);border:1px solid var(--line);border-bottom:none;border-radius:22px 22px 0 0;padding:22px 30px 14px">
+          <h3 style="font-size:1.16rem;margin:0;display:flex;align-items:center;gap:9px;color:var(--dim);font-weight:700">&#10007; What you&#8217;ve tried</h3>
         </div>
-        <div class="ccard us reveal d2" style="align-self:start">
-          <h3>&#10003; What we do instead</h3>
-          <ul>
-            <li>A real person who reads your story and shapes it</li>
-            <li>Tools used with genuine skill, not on autopilot</li>
-            <li>Pay only once you have seen it is worth it</li>
-            <li>One partner across resume, LinkedIn, interview, and beyond</li>
-            <li>A presence that gets you found: profile, portfolio, and website, all working together</li>
-            <li>A search strategy, not just a submission process</li>
-            <li>Support before and long after you land the role</li>
-            <li>Someone who is still there after the offer letter</li>
-          </ul>
+        <div class="reveal d2" style="background:var(--grad-soft);border:1px solid rgba(248,95,168,.35);border-bottom:none;border-radius:22px 22px 0 0;padding:22px 30px 14px;box-shadow:0 0 50px -6px rgba(248,95,168,.5)">
+          <h3 style="font-size:1.16rem;margin:0;display:flex;align-items:center;gap:9px;color:var(--text);font-weight:700">&#10003; What we do instead</h3>
         </div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">AI tools that hand everyone the same generic resume</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">A real person who reads your story and shapes it</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">A match score, then total silence</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">Tools used with genuine skill, not on autopilot</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Software subscriptions you cancel in a month</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">Pay only once you have seen it is worth it</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Five disconnected apps, no one who actually knows you</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">One partner across resume, LinkedIn, interview, and beyond</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">A LinkedIn profile no one is reading</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">A presence that gets you found: profile, portfolio, and website, all working together</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">A website built from a free template that looks like everyone else&#8217;s</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">A search strategy, not just a submission process</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Job applications sent into a void</div>
+        <div style="background:var(--grad-soft);border-left:1px solid rgba(248,95,168,.35);border-right:1px solid rgba(248,95,168,.35);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--text)">Support before and long after you land the role</div>
+        <div style="background:rgba(237,234,247,.03);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 30px;font-size:.97rem;color:var(--dim)">Advice that disappears the moment you are hired</div>
+        <div style="background:var(--grad-soft);border:1px solid rgba(248,95,168,.35);border-top:none;border-radius:0 0 22px 22px;padding:10px 30px;font-size:.97rem;color:var(--text);box-shadow:0 0 50px -6px rgba(248,95,168,.5)">Someone who is still there after the offer letter</div>
+        <div style="background:rgba(237,234,247,.03);border:1px solid var(--line);border-top:none;border-radius:0 0 22px 22px;padding:10px 30px;font-size:.97rem;color:var(--dim)">Certifications that look good on paper but open no doors</div>
+        <div></div>
       </div>
     </div>
   </section>
@@ -631,7 +628,7 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="lib reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;padding:0;position:relative">
-        <span style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:rgba(224,64,251,0.15);color:#E040FB;border:1px solid rgba(224,64,251,0.4);border-radius:20px;padding:4px 14px">Coming Soon</span>
+        <span style="position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:rgba(224,64,251,0.15);color:#E040FB;border:1px solid rgba(224,64,251,0.4);border-radius:20px;padding:4px 14px;z-index:10">Coming Soon</span>
         <div class="lib-inner" style="padding:44px">
           <div class="eyebrow">Members </div>
           <h2>Create a free account &amp; unlock the library.</h2>
