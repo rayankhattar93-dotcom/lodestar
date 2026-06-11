@@ -268,6 +268,9 @@
   .modal .sub{color:var(--muted);font-size:.94rem;margin-bottom:24px}
   .modal .switch{text-align:center;margin-top:16px;font-size:.9rem;color:var(--muted)}
   .modal .switch button{background:none;border:none;color:var(--cyan);font-weight:600;cursor:pointer;font-family:inherit;font-size:.9rem}
+  .auth-forgot{text-align:right;margin:-4px 0 12px 0}
+  .auth-forgot-link{font-size:.8rem;color:#A78BFA;text-decoration:none;opacity:.85}
+  .auth-forgot-link:hover{opacity:1;text-decoration:underline}
 
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:48px 0 40px;margin-top:40px;position:relative;z-index:3}
@@ -1034,6 +1037,7 @@
     <div class="field" id="nameField"><label for="m-name">Name</label><input id="m-name" type="text" placeholder="Your name"></div>
     <div class="field"><label for="m-email">Email</label><input id="m-email" type="email" placeholder="you@email.com"></div>
     <div class="field"><label for="m-pass">Password</label><input id="m-pass" type="password" placeholder="��������"></div>
+    <p class="auth-forgot"><a href="#" class="auth-forgot-link" onclick="return false;">Forgot your password?</a></p>
     <button class="btn btn-primary" style="width:100%;padding:14px" id="modalSubmit">Create account</button>
     <div class="confirm" id="modalConfirm">You're on the list! We'll be in touch as soon as the members library goes live.</div>
     <div class="switch" id="modalSwitch">Already have an account? <button id="switchBtn">Sign in</button></div>
@@ -1097,7 +1101,31 @@
     io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
     document.querySelectorAll('.page.active .reveal:not(.in)').forEach(el=>io.observe(el));
   }
-  document.getElementById('bookCalendlyBtn').addEventListener('click',()=>window.open('https://calendly.com/rayankhattar93/freecareerconsultation','_blank'));
+  (function(){
+    function bkGetOrCreate(cls,parent){let el=parent.querySelector('.'+cls);if(!el){el=document.createElement('p');el.className=cls;el.style.cssText='color:#F87171;font-size:.82rem;margin-top:4px';parent.appendChild(el);}return el;}
+    function bkClearErr(cls,parent){const el=parent.querySelector('.'+cls);if(el)el.remove();}
+    const bkName=document.getElementById('b-name');
+    const bkEmail=document.getElementById('b-email');
+    const bkStage=document.getElementById('b-stage');
+    const bkHelp=document.getElementById('b-help');
+    bkName.addEventListener('input',()=>bkClearErr('bk-err-name',bkName.parentNode));
+    bkEmail.addEventListener('input',()=>bkClearErr('bk-err-email',bkEmail.parentNode));
+    bkStage.addEventListener('change',()=>bkClearErr('bk-err-where',bkStage.parentNode));
+    bkHelp.addEventListener('change',()=>bkClearErr('bk-err-help',bkHelp.parentNode));
+    document.getElementById('bookCalendlyBtn').addEventListener('click',()=>{
+      let valid=true;
+      bkClearErr('bk-err-name',bkName.parentNode);
+      bkClearErr('bk-err-email',bkEmail.parentNode);
+      bkClearErr('bk-err-where',bkStage.parentNode);
+      bkClearErr('bk-err-help',bkHelp.parentNode);
+      if(!bkName.value.trim()){bkGetOrCreate('bk-err-name',bkName.parentNode).textContent='Please enter your name.';valid=false;}
+      if(!bkEmail.value.trim()){bkGetOrCreate('bk-err-email',bkEmail.parentNode).textContent='Please enter your email.';valid=false;}
+      else if(!/^[^@]+@[^@]+\.[^@]+$/.test(bkEmail.value.trim())){bkGetOrCreate('bk-err-email',bkEmail.parentNode).textContent='Please enter a valid email address.';valid=false;}
+      if(!bkStage.value){bkGetOrCreate('bk-err-where',bkStage.parentNode).textContent='Please select an option.';valid=false;}
+      if(!bkHelp.value){bkGetOrCreate('bk-err-help',bkHelp.parentNode).textContent='Please select an option.';valid=false;}
+      if(valid)window.open('https://calendly.com/rayankhattar93/freecareerconsultation','_blank');
+    });
+  })();
 
   const overlay=document.getElementById('overlay');
   function setMode(m){
