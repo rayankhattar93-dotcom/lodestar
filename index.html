@@ -504,6 +504,28 @@
   .navlink-inactive{color:var(--dim);background:none;border:none;font-family:inherit;font-size:.93rem;font-weight:500;cursor:default;position:relative;padding:4px 0}
   .btn-soon{background:rgba(237,234,247,.03);color:var(--dim);border:1px solid var(--line);cursor:default;opacity:.7}
 
+  /* ---------- LEGAL HUB & PAGES ---------- */
+  .legal-hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+  .legal-hub-card{background:linear-gradient(160deg,rgba(30,24,64,.7),rgba(18,14,34,.5));border:1px solid var(--line-2);border-radius:26px;padding:36px;cursor:pointer;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;display:flex;flex-direction:column;gap:14px}
+  .legal-hub-card:hover{transform:translateY(-6px);border-color:var(--magenta);box-shadow:var(--glow-m)}
+  .legal-hub-icon{width:52px;height:52px;border-radius:16px;background:var(--grad-soft);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--cyan)}
+  .legal-hub-card h3{font-size:1.35rem;margin:0}
+  .legal-hub-card p{color:var(--muted);font-size:.97rem;margin:0;flex:1}
+  .legal-hub-link{font-size:.9rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:auto}
+  @media(max-width:640px){.legal-hub-grid{grid-template-columns:1fr}}
+  .legal-back{display:inline-flex;align-items:center;gap:8px;background:none;border:none;color:var(--muted);font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;padding:0;margin-bottom:32px;transition:color .2s}
+  .legal-back:hover{color:var(--text)}
+  .legal-h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:8px}
+  .legal-h3{font-size:1.18rem;margin:28px 0 8px;color:var(--text)}
+  .legal-p,.legal-li{color:var(--muted);font-size:1rem;line-height:1.7;max-width:80ch}
+  .legal-p{margin-bottom:12px}
+  .legal-ul{list-style:disc;margin:0 0 14px 22px}
+  .legal-li{margin-bottom:6px}
+  .legal-a{color:var(--cyan);text-decoration:none}
+  .legal-a:hover{text-decoration:underline}
+  .legal-updated{font-size:.85rem;color:var(--dim);margin-bottom:20px}
+  .legal-disc{background:rgba(248,95,168,.08);border:1px solid rgba(248,95,168,.28);border-radius:14px;padding:14px 16px;font-size:.9rem;color:var(--text);margin:8px 0 28px;max-width:80ch}
+
 </style>
 </head>
 <body>
@@ -954,76 +976,111 @@
   </section>
 </div>
 
-<!-- ============ PRIVACY & TERMS ============ -->
+<!-- ============ LEGAL HUB ============ -->
 <div class="page" id="page-legal">
   <section style="padding-top:72px">
-    <div class="wrap narrow legal">
+    <div class="wrap narrow">
       <div class="eyebrow reveal">Legal</div>
-      <h2 class="reveal d1">Privacy Policy</h2>
-      <p class="updated reveal d1">Last updated: 2026</p>
-      <div class="disc reveal d1">This is a plain-language starting policy for Lodestar. Before going fully live, have it reviewed by a qualified legal professional to make sure it fits your final features (accounts, payments) and the laws that apply to you and your clients.</div>
+      <h2 class="sec-title reveal d1">Privacy <span class="grad-text">&amp; Terms</span></h2>
+      <p class="sec-lead reveal d2">Everything you need to know about how we handle your data and the terms of our services.</p>
+      <div class="legal-hub-grid reveal d3">
+        <div class="legal-hub-card" data-go="privacy">
+          <div class="legal-hub-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Privacy Policy</h3>
+          <p>How we collect, use, and protect your personal information.</p>
+          <span class="legal-hub-link">Read policy &rarr;</span>
+        </div>
+        <div class="legal-hub-card" data-go="terms">
+          <div class="legal-hub-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <h3>Terms of Service</h3>
+          <p>The rules and conditions that govern use of our services.</p>
+          <span class="legal-hub-link">Read terms &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-      <p class="reveal d2">Lodestar ("we", "us", "our") is a career-services business operated by Rayan Khattar, based in Lebanon. This policy explains what information we collect, why, and what choices you have.</p>
+<!-- ============ PRIVACY POLICY ============ -->
+<div class="page" id="page-privacy">
+  <section style="padding-top:72px">
+    <div class="wrap narrow">
+      <button class="legal-back reveal" data-go="legal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Legal</button>
+      <div class="eyebrow reveal">Privacy</div>
+      <h2 class="legal-h2 reveal d1">Privacy Policy</h2>
+      <p class="legal-updated reveal d1">Last updated: June 2026</p>
+      <div class="legal-disc reveal d1">This policy explains what personal information Lodestar collects, how we use it, and your rights over it, in plain language and in compliance with Lebanese Law No. 81 of 2018 on the Protection of Personal Data and, where applicable, the GDPR.</div>
 
-      <h3 class="reveal d2">Information we collect</h3>
-      <ul class="reveal d2">
-        <li><b>Information you give us</b> when you book a consultation or contact us: your name, email address, your career stage, and anything you choose to share about your goals.</li>
-        <li><b>Account information</b> (when member accounts launch): your name, email, and a password, stored securely.</li>
-        <li><b>Documents and details</b> you share with us during a service, such as a resume, LinkedIn profile, or work history, used only to deliver that service.</li>
-        <li><b>Basic usage data</b> from the website (such as pages visited), if and when analytics are enabled, to help us improve.</li>
+      <p class="legal-p reveal d2">Lodestar ("we", "us", "our") is a career-services business operated by Rayan Khattar, based in Lebanon. This policy applies to information collected through lodestarcareers.co and through our services.</p>
+
+      <h3 class="legal-h3 reveal d2">Information we collect</h3>
+      <ul class="legal-ul reveal d2">
+        <li class="legal-li"><b>Contact and booking information</b> you provide when you book a consultation or contact us: your name, email address, career stage, and any details you choose to share about your goals.</li>
+        <li class="legal-li"><b>Account information</b> (when member accounts launch): your name, email, and a securely hashed password, processed by Supabase.</li>
+        <li class="legal-li"><b>Service documents</b> you share during an engagement, such as a resume or LinkedIn profile, used solely to deliver that service.</li>
+        <li class="legal-li"><b>Basic usage data</b> from the website if and when analytics are enabled, to help us improve.</li>
       </ul>
 
-      <h3 class="reveal d2">How we use your information</h3>
-      <ul class="reveal d2">
-        <li>To respond to you, schedule and run your free consultation, and deliver the services you ask for.</li>
-        <li>To create and manage your account and the resource library (once available).</li>
-        <li>To improve our website and services.</li>
+      <h3 class="legal-h3 reveal d2">How we use your information</h3>
+      <ul class="legal-ul reveal d2">
+        <li class="legal-li">To respond to you, schedule and run your free consultation, and deliver the services you have asked for.</li>
+        <li class="legal-li">To create and manage your account and the member resource library (once available).</li>
+        <li class="legal-li">To improve our website and services.</li>
       </ul>
 
-      <h3 class="reveal d2">What we do not do</h3>
-      <p class="reveal d2">We do not sell your personal information, and we do not share it with advertisers. We only share information with trusted providers that help us run the service (for example, secure hosting or email), and only as needed to do so.</p>
+      <h3 class="legal-h3 reveal d2">What we do not do</h3>
+      <p class="legal-p reveal d2">We do not sell your personal information and do not share it with advertisers. We only share information with trusted providers that help us operate the service (for example, secure hosting, email delivery, or authentication), and only as needed.</p>
 
-      <h3 class="reveal d2">Your choices and rights</h3>
-      <p class="reveal d2">You can ask us to access, correct, or delete the personal information we hold about you, and you can ask us to stop contacting you, at any time. Just email us using the address below.</p>
+      <h3 class="legal-h3 reveal d2">Your rights</h3>
+      <p class="legal-p reveal d2">You have the right to access, correct, or delete the personal information we hold about you, and to ask us to stop contacting you, at any time. To exercise any of these rights, email us at the address below.</p>
 
-      <h3 class="reveal d2">Data security &amp; retention</h3>
-      <p class="reveal d2">We take reasonable measures to protect your information and keep it only as long as needed to provide our services or as required by law.</p>
+      <h3 class="legal-h3 reveal d2">Data security and retention</h3>
+      <p class="legal-p reveal d2">We take reasonable technical and organisational measures to protect your information and retain it only for as long as necessary to provide our services or as required by law.</p>
 
-      <h3 class="reveal d2">Contact</h3>
-      <p class="reveal d2">Questions about your privacy? Email <a href="mailto:guide@lodestarcareers.co">guide@lodestarcareers.co</a>.</p>
+      <h3 class="legal-h3 reveal d2">Contact</h3>
+      <p class="legal-p reveal d2">Questions about your privacy? Email <a class="legal-a" href="mailto:guide@lodestarcareers.co">guide@lodestarcareers.co</a>.</p>
 
-      <div class="divider reveal"></div>
+      <div style="margin-top:40px" class="reveal"><button class="btn btn-ghost" data-go="legal">&larr; Back to Legal</button></div>
+    </div>
+  </section>
+</div>
 
-      <h2 class="reveal">Terms of Service</h2>
-      <p class="updated reveal">Last updated: 2026</p>
+<!-- ============ TERMS OF SERVICE ============ -->
+<div class="page" id="page-terms">
+  <section style="padding-top:72px">
+    <div class="wrap narrow">
+      <button class="legal-back reveal" data-go="legal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to Legal</button>
+      <div class="eyebrow reveal">Terms</div>
+      <h2 class="legal-h2 reveal d1">Terms of Service</h2>
+      <p class="legal-updated reveal d1">Last updated: June 2026</p>
 
-      <p class="reveal">By using this website and our services, you agree to these terms.</p>
+      <p class="legal-p reveal d2">By using this website or our services, you agree to these terms. Please read them carefully.</p>
 
-      <h3 class="reveal">The services</h3>
-      <p class="reveal">Lodestar provides career-support services, including resume writing, LinkedIn optimization, cover letters, interview and job-seeking support, career coaching, portfolio creation, and roadmaps. Every engagement begins with a free consultation. You only pay once you have seen the value and agreed to proceed.</p>
+      <h3 class="legal-h3 reveal d2">The services</h3>
+      <p class="legal-p reveal d2">Lodestar provides career-support services including resume writing, LinkedIn optimisation, cover letters, interview and job-seeking support, career coaching, portfolio creation, business and personal websites, and roadmaps. Every engagement begins with a free consultation. You only pay once you have seen the value and agreed to proceed.</p>
 
-      <h3 class="reveal">No guarantee of employment</h3>
-      <p class="reveal">We work hard to give you the best possible chance of success, and we are proud of our clients' results. However, hiring decisions are made by employers, so we cannot and do not guarantee a job offer, interview, or specific outcome.</p>
+      <h3 class="legal-h3 reveal d2">No guarantee of employment</h3>
+      <p class="legal-p reveal d2">We work hard to give you the best possible chance of success, and we are proud of our clients' results. However, hiring decisions are made by employers, so we cannot and do not guarantee a job offer, interview, or specific outcome.</p>
 
-      <h3 class="reveal">Payment</h3>
-      <p class="reveal">Pricing is agreed with you after your free consultation, based on the services and your stage. Specific payment terms are set out in your individual agreement.</p>
+      <h3 class="legal-h3 reveal d2">Payment</h3>
+      <p class="legal-p reveal d2">Pricing is agreed after your free consultation based on the services required and your stage. Accepted payment methods include Wise, PayPal, Stripe, and Whish Money. Specific payment terms are set out in your individual service agreement.</p>
 
-      <h3 class="reveal">Your content &amp; ownership</h3>
-      <p class="reveal">You keep ownership of the personal information and documents you share with us. Once a deliverable (such as your resume or portfolio) is completed and paid for, it is yours to use.</p>
+      <h3 class="legal-h3 reveal d2">Your content and ownership</h3>
+      <p class="legal-p reveal d2">You retain ownership of the personal information and documents you share with us. Once a deliverable such as your resume or portfolio is completed and paid for, it is yours to use.</p>
 
-      <h3 class="reveal">Acceptable use</h3>
-      <p class="reveal">Please provide accurate information and use the website lawfully. We may decline or end service in cases of abuse, dishonesty, or misuse.</p>
+      <h3 class="legal-h3 reveal d2">Acceptable use</h3>
+      <p class="legal-p reveal d2">Please provide accurate information and use the website lawfully. We may decline or end service in cases of abuse, dishonesty, or misuse.</p>
 
-      <h3 class="reveal">Limitation of liability</h3>
-      <p class="reveal">To the extent permitted by law, Lodestar is not liable for indirect or consequential losses arising from the use of our website or services.</p>
+      <h3 class="legal-h3 reveal d2">Limitation of liability</h3>
+      <p class="legal-p reveal d2">To the extent permitted by law, Lodestar is not liable for indirect or consequential losses arising from the use of our website or services.</p>
 
-      <h3 class="reveal">Governing law</h3>
-      <p class="reveal">These terms are governed by the laws of Lebanon.</p>
+      <h3 class="legal-h3 reveal d2">Governing law</h3>
+      <p class="legal-p reveal d2">These terms are governed by the laws of Lebanon.</p>
 
-      <h3 class="reveal">Changes</h3>
-      <p class="reveal">We may update this policy and these terms from time to time. The latest version will always be posted on this page.</p>
+      <h3 class="legal-h3 reveal d2">Changes</h3>
+      <p class="legal-p reveal d2">We may update these terms from time to time. The latest version will always be available on this page.</p>
 
-      <div style="margin-top:34px" class="reveal"><button class="btn btn-primary" data-go="book">Book your free consultation &rarr;</button></div>
+      <div style="margin-top:40px" class="reveal"><button class="btn btn-ghost" data-go="legal">&larr; Back to Legal</button></div>
     </div>
   </section>
 </div>
@@ -1080,7 +1137,7 @@
   const sf=document.getElementById('stars');
   for(let i=0;i<60;i++){const s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';sf.appendChild(s);}
 
-  const pages=['home','services','how','about','stories','book','legal'];
+  const pages=['home','services','how','about','stories','book','legal','privacy','terms'];
   const navLinksWrap=document.getElementById('navLinks');
   function go(page){
     pages.forEach(p=>document.getElementById('page-'+p).classList.toggle('active',p===page));
