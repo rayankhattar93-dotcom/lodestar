@@ -526,6 +526,16 @@
   .legal-updated{font-size:.85rem;color:var(--dim);margin-bottom:20px}
   .legal-disc{background:rgba(248,95,168,.08);border:1px solid rgba(248,95,168,.28);border-radius:14px;padding:14px 16px;font-size:.9rem;color:var(--text);margin:8px 0 28px;max-width:80ch}
 
+  /* ---------- FOOTER LEGAL LINKS ---------- */
+  .footer-legal-link{font-size:12px;color:var(--color-text-secondary,#888);text-decoration:none;cursor:pointer;opacity:0.7;transition:opacity .2s}
+  .footer-legal-link:hover{opacity:1}
+  .footer-legal-sep{font-size:12px;color:var(--color-text-secondary,#888);opacity:0.5;margin:0 6px}
+
+  /* ---------- FORM CONSENT ---------- */
+  .form-consent-text{font-size:11px;color:var(--color-text-secondary,#888);text-align:center;margin:8px 0 0;opacity:0.7;line-height:1.5}
+  .form-consent-link{color:inherit;text-decoration:underline;cursor:pointer;opacity:0.85}
+  .form-consent-link:hover{opacity:1}
+
 
 </style>
 </head>
@@ -764,6 +774,7 @@
               </div>
             </div>
             <button class="lc-btn" id="lc-btn">Send My Free Guides</button>
+            <p class="form-consent-text">By submitting, you agree to our <a data-go="privacy" class="form-consent-link">Privacy Policy</a>.</p>
             <div class="lc-api-err" id="lc-api-err" role="alert"></div>
             <div class="lc-msg" id="lc-msg" role="alert"></div>
             <p class="lc-note">No spam, ever. Unsubscribe any time.</p>
@@ -1003,6 +1014,7 @@
         </div>
         <div class="field"><label for="b-msg">Anything else? (optional)</label><textarea id="b-msg" placeholder="Tell me a little about where you are and what you&#8217;re hoping for&#8230;"></textarea></div>
         <button class="btn btn-primary" id="bookCalendlyBtn" style="width:100%;padding:15px">Request my free consultation &#8594;</button>
+        <p class="form-consent-text">By submitting, you agree to our <a data-go="privacy" class="form-consent-link">Privacy Policy</a>.</p>
       </div>
     </div>
   </section>
@@ -1258,6 +1270,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Lodestar. Where your career finds direction.</span>
+      <span><a data-go="privacy" class="footer-legal-link">Privacy Policy</a><span class="footer-legal-sep">·</span><a data-go="terms" class="footer-legal-link">Terms and Conditions</a></span>
       <span><button data-go="legal" style="background:none;border:none;color:var(--muted);font-family:inherit;font-size:.84rem;cursor:pointer;padding:0;text-decoration:underline">Privacy &amp; Terms</button> · Transforming lives, one calling at a time.</span>
     </div>
   </div>
