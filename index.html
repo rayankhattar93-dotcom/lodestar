@@ -264,11 +264,20 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 420px;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 4px 18px rgba(0,0,0,0.35);
   margin-bottom: 1rem;
+}
+.pow-cv-img {
+  display: block;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: top center;
 }
 .pow-screenshot-bar {
   width: 100%;
@@ -276,28 +285,6 @@
   background: linear-gradient(90deg, #C026D3, #06B6D4);
   border-radius: 8px 8px 0 0;
   flex-shrink: 0;
-}
-.pow-cv-frame {
-  display: none;
-  width: 100%;
-  height: 500px;
-  border: none;
-}
-@media (max-width: 600px) {
-  .pow-cv-frame { height: 420px; }
-}
-.pow-cv-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  color: rgba(255,255,255,0.2);
-  font-size: 0.75rem;
-  letter-spacing: 0.03em;
-  background: rgba(255,255,255,0.02);
-}
-@media (max-width: 600px) {
-  .pow-cv-placeholder { height: 420px; }
 }
 .pow-show-more-btn {
   display: block;
@@ -327,7 +314,7 @@
 }
   .pow-client-name{font-size:.975rem;font-weight:600;color:var(--text);display:block}
   .pow-client-role{font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
-  .pow-badges{display:flex;flex-wrap:wrap;gap:5px}
+  .pow-badges{display:flex;flex-wrap:wrap;gap:5px;min-height:90px;align-content:flex-start}
   .pow-badge{font-size:.68rem;font-weight:500;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);white-space:nowrap}
   .pow-tabs{display:flex;gap:8px;margin-bottom:.85rem}
   .pow-tab-btn{font-size:.78rem;font-weight:500;padding:5px 15px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s}
@@ -1134,7 +1121,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-jalal-frame" class="pow-cv-frame" src="proof-of-work/jalal-before.pdf" title="Jalal A. CV"></iframe>
+    <img id="pow-jalal-img" class="pow-cv-img" src="proof-of-work/jalal-before.jpg" alt="Jalal A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1164,7 +1151,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-nassib-frame" class="pow-cv-frame" src="proof-of-work/nassib-before.pdf" title="Nassib A. CV"></iframe>
+    <img id="pow-nassib-img" class="pow-cv-img" src="proof-of-work/nassib-before.jpg" alt="Nassib A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1191,7 +1178,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-rabih-frame" class="pow-cv-frame" src="proof-of-work/rabih-before.pdf" title="Rabih K. CV"></iframe>
+    <img id="pow-rabih-img" class="pow-cv-img" src="proof-of-work/rabih-before.jpg" alt="Rabih K. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1217,7 +1204,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-reine-frame" class="pow-cv-frame" src="proof-of-work/reine-before.pdf" title="Reine A. CV"></iframe>
+    <img id="pow-reine-img" class="pow-cv-img" src="proof-of-work/reine-before.jpg" alt="Reine A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1245,7 +1232,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-bassel-frame" class="pow-cv-frame" src="proof-of-work/bassel-before.pdf" title="Bassel A. CV"></iframe>
+    <img id="pow-bassel-img" class="pow-cv-img" src="proof-of-work/bassel-before.jpg" alt="Bassel A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1276,7 +1263,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-taymour-frame" class="pow-cv-frame" src="proof-of-work/taymour-before.pdf" title="Taymour G. CV"></iframe>
+    <img id="pow-taymour-img" class="pow-cv-img" src="proof-of-work/taymour-before.jpg" alt="Taymour G. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1306,7 +1293,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-nachaat-frame" class="pow-cv-frame" src="proof-of-work/nachaat-before.pdf" title="Nachaat G. CV"></iframe>
+    <img id="pow-nachaat-img" class="pow-cv-img" src="proof-of-work/nachaat-before.jpg" alt="Nachaat G. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1336,7 +1323,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-rayan-b-frame" class="pow-cv-frame" src="proof-of-work/rayan-b-before.pdf" title="Rayan A. CV"></iframe>
+    <img id="pow-rayan-b-img" class="pow-cv-img" src="proof-of-work/rayan-b-before.jpg" alt="Rayan A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1363,7 +1350,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <iframe id="pow-maher-frame" class="pow-cv-frame" src="proof-of-work/maher-before.pdf" title="Maher A. CV"></iframe>
+    <img id="pow-maher-img" class="pow-cv-img" src="proof-of-work/maher-before.jpg" alt="Maher A. CV">
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1759,51 +1746,9 @@
     });
   })();
 
-  function getPowPlaceholder(cardId) {
-    var phId = 'pow-' + cardId + '-placeholder';
-    var existing = document.getElementById(phId);
-    if (existing) return existing;
-    var frame = document.getElementById('pow-' + cardId + '-frame');
-    if (!frame || !frame.parentElement) return null;
-    var ph = document.createElement('div');
-    ph.className = 'pow-cv-placeholder';
-    ph.id = phId;
-    ph.innerHTML = '<span>CV preview loading&hellip;</span>';
-    frame.parentElement.insertBefore(ph, frame);
-    return ph;
-  }
-
-  function tryLoadPowFrame(cardId, tab) {
-    var pdfUrl = 'proof-of-work/' + cardId + '-' + tab + '.pdf';
-    var frame = document.getElementById('pow-' + cardId + '-frame');
-    var ph = getPowPlaceholder(cardId);
-    if (!frame) return;
-    frame.style.display = 'none';
-    frame.src = '';
-    if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>Loading CV&hellip;</span>'; }
-    fetch(pdfUrl, { method: 'HEAD' })
-      .then(function(r) {
-        var ct = r.headers.get('content-type') || '';
-        var ok = r.ok && ct.indexOf('html') === -1;
-        if (ok) {
-          frame.src = pdfUrl;
-          frame.style.display = 'block';
-          if (ph) ph.style.display = 'none';
-        } else {
-          frame.style.display = 'none';
-          frame.src = '';
-          if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>CV preview not yet available</span>'; }
-        }
-      })
-      .catch(function() {
-        frame.style.display = 'none';
-        frame.src = '';
-        if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>CV preview not yet available</span>'; }
-      });
-  }
-
   function switchPoWImg(cardId, tab) {
-    tryLoadPowFrame(cardId, tab);
+    var img = document.getElementById('pow-' + cardId + '-img');
+    if (img) img.src = 'proof-of-work/' + cardId + '-' + tab + '.jpg';
     var card = document.getElementById('pow-card-' + cardId);
     if (card) {
       card.querySelectorAll('.pow-tab-btn').forEach(function(btn) {
@@ -1817,9 +1762,6 @@
   function showMoreCards() {
     document.querySelectorAll('.pow-card-hidden').forEach(function(card) {
       card.classList.remove('pow-card-hidden');
-      var cardId = card.id.replace('pow-card-', '');
-      getPowPlaceholder(cardId);
-      tryLoadPowFrame(cardId, 'before');
     });
     var btn = document.getElementById('pow-show-more-btn');
     if (btn) btn.style.display = 'none';
@@ -1863,9 +1805,6 @@
         target.scrollIntoView({behavior:'smooth',block:'start'});
       }
     });
-  });
-  document.querySelectorAll('.pow-card:not(.pow-card-hidden)').forEach(function(card) {
-    tryLoadPowFrame(card.id.replace('pow-card-', ''), 'before');
   });
 </script>
 <script>
