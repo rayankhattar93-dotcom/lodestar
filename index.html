@@ -258,7 +258,7 @@
 @media (max-width: 600px) {
   .pow-list { grid-template-columns: 1fr; }
 }
-.pow-card-hidden { display: none; }
+.pow-card-hidden { display: none !important; }
 
 .pow-screenshot-frame {
   display: flex;
@@ -278,13 +278,26 @@
   flex-shrink: 0;
 }
 .pow-cv-frame {
-  display: block;
+  display: none;
   width: 100%;
   height: 500px;
   border: none;
 }
 @media (max-width: 600px) {
   .pow-cv-frame { height: 420px; }
+}
+.pow-cv-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  background: rgba(255,255,255,0.02);
+}
+@media (max-width: 600px) {
+  .pow-cv-placeholder { height: 420px; }
 }
 .pow-show-more-btn {
   display: block;
@@ -1746,11 +1759,51 @@
     });
   })();
 
-  function switchPoWImg(cardId, tab) {
+  function getPowPlaceholder(cardId) {
+    var phId = 'pow-' + cardId + '-placeholder';
+    var existing = document.getElementById(phId);
+    if (existing) return existing;
     var frame = document.getElementById('pow-' + cardId + '-frame');
-    if (frame) {
-      frame.src = 'proof-of-work/' + cardId + '-' + tab + '.pdf';
-    }
+    if (!frame || !frame.parentElement) return null;
+    var ph = document.createElement('div');
+    ph.className = 'pow-cv-placeholder';
+    ph.id = phId;
+    ph.innerHTML = '<span>CV preview loading&hellip;</span>';
+    frame.parentElement.insertBefore(ph, frame);
+    return ph;
+  }
+
+  function tryLoadPowFrame(cardId, tab) {
+    var pdfUrl = 'proof-of-work/' + cardId + '-' + tab + '.pdf';
+    var frame = document.getElementById('pow-' + cardId + '-frame');
+    var ph = getPowPlaceholder(cardId);
+    if (!frame) return;
+    frame.style.display = 'none';
+    frame.src = '';
+    if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>Loading CV&hellip;</span>'; }
+    fetch(pdfUrl, { method: 'HEAD' })
+      .then(function(r) {
+        var ct = r.headers.get('content-type') || '';
+        var ok = r.ok && ct.indexOf('html') === -1;
+        if (ok) {
+          frame.src = pdfUrl;
+          frame.style.display = 'block';
+          if (ph) ph.style.display = 'none';
+        } else {
+          frame.style.display = 'none';
+          frame.src = '';
+          if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>CV preview not yet available</span>'; }
+        }
+      })
+      .catch(function() {
+        frame.style.display = 'none';
+        frame.src = '';
+        if (ph) { ph.style.display = 'flex'; ph.innerHTML = '<span>CV preview not yet available</span>'; }
+      });
+  }
+
+  function switchPoWImg(cardId, tab) {
+    tryLoadPowFrame(cardId, tab);
     var card = document.getElementById('pow-card-' + cardId);
     if (card) {
       card.querySelectorAll('.pow-tab-btn').forEach(function(btn) {
@@ -1764,6 +1817,9 @@
   function showMoreCards() {
     document.querySelectorAll('.pow-card-hidden').forEach(function(card) {
       card.classList.remove('pow-card-hidden');
+      var cardId = card.id.replace('pow-card-', '');
+      getPowPlaceholder(cardId);
+      tryLoadPowFrame(cardId, 'before');
     });
     var btn = document.getElementById('pow-show-more-btn');
     if (btn) btn.style.display = 'none';
@@ -1807,6 +1863,9 @@
         target.scrollIntoView({behavior:'smooth',block:'start'});
       }
     });
+  });
+  document.querySelectorAll('.pow-card:not(.pow-card-hidden)').forEach(function(card) {
+    tryLoadPowFrame(card.id.replace('pow-card-', ''), 'before');
   });
 </script>
 <script>
