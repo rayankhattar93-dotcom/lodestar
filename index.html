@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -247,7 +247,78 @@
   .pow-section-header{margin-bottom:2rem}
   .pow-section-title{font-size:1.2rem;font-weight:500;color:var(--text);letter-spacing:-.01em;margin-bottom:.35rem}
   .pow-section-sub{font-size:.875rem;color:var(--muted)}
-  .pow-list{display:flex;flex-direction:column;gap:1.75rem}
+  .pow-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .pow-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .pow-list { grid-template-columns: 1fr; }
+}
+.pow-card-hidden { display: none; }
+
+.pow-screenshot-frame {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  max-height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  margin-bottom: 1rem;
+}
+.pow-screenshot-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #C026D3, #06B6D4);
+  border-radius: 8px 8px 0 0;
+  z-index: 3;
+}
+.pow-canvas-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.02);
+  z-index: 2;
+  pointer-events: none;
+}
+.pow-canvas-loading.pow-loaded { display: none; }
+.pow-resume-canvas {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.pow-show-more-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 10px 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.65);
+  font-size: 0.83rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+.pow-show-more-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.28);
+  color: #fff;
+}
   .pow-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem}
   .pow-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap}
   .pow-client-name{font-size:.975rem;font-weight:600;color:var(--text);display:block}
@@ -257,28 +328,6 @@
   .pow-tabs{display:flex;gap:8px;margin-bottom:.85rem}
   .pow-tab-btn{font-size:.78rem;font-weight:500;padding:5px 15px;border-radius:20px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.45);cursor:pointer;transition:all .2s}
   .pow-tab-btn.pow-active{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.38);color:#fff}
-  .pow-preview-wrap{max-height:320px;overflow-y:auto;border-radius:10px;margin-bottom:1.1rem;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.15) transparent}
-  .pow-cv{background:#fff;padding:18px 20px;font-family:Georgia,'Times New Roman',serif;color:#2d2d2d;font-size:12.5px;line-height:1.65;min-height:260px}
-  .pow-cv.pow-cv-after{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border-left:3px solid #7C3AED}
-  .pow-cv-name{font-size:14px;font-weight:700;color:#111;margin-bottom:1px}
-  .pow-cv-title{font-size:10.5px;color:#777;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
-  .pow-cv-after .pow-cv-title{color:#7C3AED}
-  .pow-cv-sect{margin-top:10px}
-  .pow-cv-sect-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#aaa;border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:6px}
-  .pow-cv-after .pow-cv-sect-label{color:#7C3AED;border-bottom-color:rgba(124,58,237,.25)}
-  .pow-cv-objective{font-size:11.5px;color:#777;font-style:italic;margin-bottom:8px;line-height:1.6}
-  .pow-cv-summary{font-size:11.5px;color:#444;margin-bottom:8px;line-height:1.65}
-  .pow-cv-narrative{font-size:11.5px;color:#777;font-style:italic;border-left:3px solid #ddd;padding:6px 10px;margin-bottom:10px;line-height:1.7}
-  .pow-cv-role{font-size:12px;font-weight:600;color:#444}
-  .pow-cv-after .pow-cv-role{color:#111}
-  .pow-cv-company{font-size:10.5px;color:#888;margin-bottom:4px}
-  .pow-cv-bullet{font-size:11px;color:#666;padding-left:12px;position:relative;margin-bottom:3px}
-  .pow-cv-bullet::before{content:'\2022';position:absolute;left:0;color:#ccc}
-  .pow-cv-after .pow-cv-bullet::before{color:#7C3AED}
-  .pow-cv-skills{font-size:11px;color:#777;line-height:1.85}
-  .pow-cv-after .pow-cv-skills{color:#444}
-  .pow-cv-competencies{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
-  .pow-cv-comp-tag{font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(124,58,237,.07);color:#7C3AED;border:1px solid rgba(124,58,237,.15)}
   .pow-result{display:flex;align-items:flex-start;gap:8px;padding:10px 13px;border-radius:8px;background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.18);margin-bottom:.65rem}
   .pow-result-icon{font-size:13px;flex-shrink:0;margin-top:2px}
   .pow-result-inner{display:flex;flex-direction:column;gap:2px}
@@ -296,8 +345,6 @@
   .pow-product-desc{font-size:.84rem;color:var(--muted);line-height:1.6;margin:0}
   .pow-product-link{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);color:rgba(167,139,250,.9);font-size:.8rem;font-weight:500;text-decoration:none;transition:all .2s;white-space:nowrap;flex-shrink:0}
   .pow-product-link:hover{background:rgba(124,58,237,.22);border-color:rgba(124,58,237,.55);color:#fff}
-  .pow-coming-soon-card{background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.09);border-radius:16px;padding:2rem;text-align:center}
-  .pow-coming-soon-label{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.09em}
 
   /* ---------- BOOK ---------- */
   .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:42px}
@@ -605,6 +652,7 @@
 
 
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 <div class="bg-aura"></div>
@@ -1068,495 +1116,290 @@
         <div class="pow-subsection-title">CV Transformations</div>
         <div class="pow-list">
 
-        <!-- CARD 1: JALAL A. -->
-        <div class="pow-card" id="pow-card-jalal">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Jalal A.</span>
-              <span class="pow-client-role">Registered Nurse &#183; 6 years experience</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">CV Rewrite</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('jalal','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('jalal','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-jalal-before">
-              <div class="pow-cv-name">Jalal A.</div>
-              <div class="pow-cv-title">Nursing Student / Practical Nurse</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Profile</div>
-                <div class="pow-cv-objective">An undergraduate holding a Brevet Professional and Baccalaureate Technique in nursing sciences. Currently a senior student pursuing a bachelor of sciences in nursing at the Islamic University of Lebanon.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Skills and Abilities</div>
-                <div class="pow-cv-bullet">Strong communication skills, able to effectively interact with patients and colleagues.</div>
-                <div class="pow-cv-bullet">Proven ability to work well in a team environment and build positive relationships.</div>
-                <div class="pow-cv-bullet">Highly disciplined and dedicated to consistently performing at a high level.</div>
-                <div class="pow-cv-bullet">Highly skilled in applying nursing practice at high standards.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Practical Nurse, Al Zahraa University Medical Center</div>
-                <div class="pow-cv-company">2020 - Current</div>
-                <div class="pow-cv-bullet">Began my nursing career at Al Zahraa University Medical Center, where I have honed my skills over the past few years.</div>
-                <div class="pow-cv-bullet">Gained experience in open surgical wards, emergency department, and cardiac care unit while handling a wide variety of cases and patients.</div>
-                <div class="pow-cv-bullet">Utilized my skills to provide high-quality care and support to patients.</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-jalal-after" style="display:none">
-              <div class="pow-cv-name">Jalal A.</div>
-              <div class="pow-cv-title">Registered Nurse | RN + PN Licensed</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Licensed Registered Nurse and Practical Nurse with 6 years of hands-on experience across emergency, cardiac, surgical, and general medical settings. Ranked 5th nationwide and 3rd in the nursing sector by the Ministry of Vocational and Technical Education. Granted dual nursing work licenses by the Ministry of Public Health. Expertise in critical decision-making, multidisciplinary collaboration, and quality improvement including KPI tracking and PDSA cycle implementation.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Competencies</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">Clinical Decision Making</span>
-                  <span class="pow-cv-comp-tag">Quality Improvement (KPI, PDSA)</span>
-                  <span class="pow-cv-comp-tag">Multidisciplinary Collaboration</span>
-                  <span class="pow-cv-comp-tag">Patient-Centered Care</span>
-                  <span class="pow-cv-comp-tag">Health System Compliance</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Registered Nurse &#8211; Al Zahraa University Medical Center</div>
-                <div class="pow-cv-company">January 2023 &#8211; Present</div>
-                <div class="pow-cv-bullet">Delivering acute care in the Emergency Room, Cardiac Care Unit, and general wards across critical and post-surgical cases.</div>
-                <div class="pow-cv-bullet">Supporting quality improvement efforts: tracking KPIs and executing PDSA cycles to enhance care delivery and patient outcomes.</div>
-                <div class="pow-cv-bullet">Collaborating with physicians and specialists to implement individualized care plans and conduct patient education.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">0 callbacks to 3 interviews in 3 weeks. Multiple job offers received.</span>
-            </div>
-          </div>
-        </div>
+<!-- CARD 1: JALAL A. -->
+<div class="pow-card" id="pow-card-jalal">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Jalal A.</span>
+      <span class="pow-client-role">Registered Nurse &#183; 6 years experience</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('jalal','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('jalal','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-jalal-loading">Loading resume...</div>
+    <canvas id="pow-jalal-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">0 callbacks to 3 interviews in 3 weeks. Multiple job offers received.</span>
+    </div>
+  </div>
+</div>
 
-        <!-- CARD 2: NASSIB A. -->
-        <div class="pow-card" id="pow-card-nassib">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Nassib A.</span>
-              <span class="pow-client-role">Registered Nurse &#183; 10+ years emergency and critical care</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">CV Rewrite</span>
-              <span class="pow-badge">LinkedIn</span>
-              <span class="pow-badge">Cover Letter</span>
-              <span class="pow-badge">Career Coaching</span>
-              <span class="pow-badge">Job Search Support</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('nassib','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('nassib','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-nassib-before">
-              <div class="pow-cv-name">Nassib A.</div>
-              <div class="pow-cv-title">Choueifat, Mount Lebanon</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Summary</div>
-                <div class="pow-cv-objective">Nassib Abou Hassan is an accomplished Registered Nurse with over 7 years of diverse healthcare experience, including emergency and COVID-19 care. He is recognized for delivering compassionate, high-quality patient care, educating patients effectively, and managing critical cases in high-pressure environments. He seeks to leverage his clinical expertise to contribute to excellence in healthcare delivery.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Storekeeper, Surgical Supplies</div>
-                <div class="pow-cv-company">Cymedic, Jal el Dib &#8211; July 2025 to Present</div>
-                <div class="pow-cv-bullet">Managed inventory of surgical instruments and sterile supplies.</div>
-                <div class="pow-cv-bullet">Received and inspected deliveries of medical materials.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Registered Nurse, Emergency Department and COVID-19 Unit</div>
-                <div class="pow-cv-company">Saint George Hospital &#8211; March 2019 to November 2024</div>
-                <div class="pow-cv-bullet">Assessment and Evaluation: Monitor and assess the progress of nursing staff through regular evaluations and feedback.</div>
-                <div class="pow-cv-bullet">Patient Assessment: Conducting thorough assessments of patients&#8217; physical and mental health.</div>
-                <div class="pow-cv-bullet">Care Planning: Develop individualized care plans based on patient&#8217;s needs and medical conditions.</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-nassib-after" style="display:none">
-              <div class="pow-cv-name">Nassib A.</div>
-              <div class="pow-cv-title">Registered Nurse | Emergency and Critical Care Specialist</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Registered Nurse with 10+ years of critical care experience across emergency departments, COVID-19 units, and home-based patient care. Skilled in rapid triage, IV insertion, airway management, and post-acute monitoring. Committed to evidence-based practice, patient advocacy, and continuous clinical growth through advanced international certifications.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Competencies</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">Emergency and Trauma Nursing</span>
-                  <span class="pow-cv-comp-tag">COVID-19 Critical Care</span>
-                  <span class="pow-cv-comp-tag">Rapid Triage and Assessment</span>
-                  <span class="pow-cv-comp-tag">IV Therapy and Wound Management</span>
-                  <span class="pow-cv-comp-tag">Airway Management</span>
-                  <span class="pow-cv-comp-tag">Patient Advocacy</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Registered Nurse &#8211; Emergency Department and COVID-19 Unit</div>
-                <div class="pow-cv-company">Saint George Hospital University Medical Center &#8211; March 2019 to November 2024</div>
-                <div class="pow-cv-bullet">Performed comprehensive assessments and implemented individualized care plans for critical and acute patients.</div>
-                <div class="pow-cv-bullet">Administered emergency interventions including IV insertion, wound care, airway management, and medication protocols.</div>
-                <div class="pow-cv-bullet">Advocated for patients&#8217; rights and collaborated with multidisciplinary teams to improve outcomes.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Certifications</div>
-                <div class="pow-cv-skills">Advanced Life Support (ALS) &#183; Advanced Pediatric Life Support (APLS) &#183; Advanced Cardiac Life Support (ACLS) &#183; EKG Basics &#183; CPR &#183; Emergency Medical Technician (EMT)</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">Landed a position in his field after a full end-to-end job search engagement.</span>
-            </div>
-          </div>
-          <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
-        </div>
+<!-- CARD 2: NASSIB A. -->
+<div class="pow-card" id="pow-card-nassib">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Nassib A.</span>
+      <span class="pow-client-role">Registered Nurse &#183; 10+ years emergency and critical care</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+      <span class="pow-badge">Cover Letter</span>
+      <span class="pow-badge">Career Coaching</span>
+      <span class="pow-badge">Job Search Support</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('nassib','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('nassib','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-nassib-loading">Loading resume...</div>
+    <canvas id="pow-nassib-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Landed a position in his field after a full end-to-end job search engagement.</span>
+    </div>
+  </div>
+  <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
+</div>
 
-        <!-- CARD 3: RABIH K. -->
-        <div class="pow-card" id="pow-card-rabih">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Rabih K.</span>
-              <span class="pow-client-role">Registered Nurse + MBA &#183; 12+ years clinical and teaching experience</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">Resume Optimization</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('rabih','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('rabih','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-rabih-before">
-              <div class="pow-cv-name">Rabih K.</div>
-              <div class="pow-cv-title">Tebnine, South Lebanon</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Objective</div>
-                <div class="pow-cv-objective">Looking for a challenging position in the field of nursing that may use my abilities to reach high ranks and offer my very best to my subordinate and superior as well as a chance for enhancing a personal career.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Education</div>
-                <div class="pow-cv-bullet">Life science 2006 at Rene Maawad high school.</div>
-                <div class="pow-cv-bullet">Bachelor degree Nursing science 2011 at Islamic University Lebanon.</div>
-                <div class="pow-cv-bullet">Master degree MBA Business Administration 2019 at AUCE.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Work Experience</div>
-                <div class="pow-cv-bullet">RN in CCU department 2011-2012 BAHMAN HOSPITAL.</div>
-                <div class="pow-cv-bullet">RN in CCU-ER department 2014-2015 BOROJ HOSPITAL.</div>
-                <div class="pow-cv-bullet">RN in medicine and ER department 2016-2022 HAYAT HOSPITAL.</div>
-                <div class="pow-cv-bullet">Instructor and teacher at HAYAT HOSPITAL (BT/TS) 2017-2022.</div>
-                <div class="pow-cv-bullet">RN in Covid projects with WHO 2020-2022.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">References</div>
-                <div class="pow-cv-skills">DR Mahmoud Hassoun 03124094 &#183; DR Nasser Hadi 03948755 &#183; Miriam Fawaz (Nursing Director) 03298776</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-rabih-after" style="display:none">
-              <div class="pow-cv-name">Rabih K.</div>
-              <div class="pow-cv-title">Registered Nurse | Clinical Instructor</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Compassionate Registered Nurse with 12+ years of clinical practice spanning Emergency Rooms, Critical Care Units, inpatient medicine, and COVID-response campaigns across Lebanon&#8217;s leading hospitals. Supervised nursing units, mentored student cohorts, and coordinated with the WHO and Red Cross. Holds a BS in Nursing and an MBA in Business Administration. Trusted for precision, leadership, and sustained clinical excellence.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Competencies</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">Emergency and Critical Care</span>
-                  <span class="pow-cv-comp-tag">Nursing Team Supervision</span>
-                  <span class="pow-cv-comp-tag">Triage and Admission Flow</span>
-                  <span class="pow-cv-comp-tag">Clinical Teaching (BT/TS)</span>
-                  <span class="pow-cv-comp-tag">COVID-19 Response and Vaccination</span>
-                  <span class="pow-cv-comp-tag">BLS, CPR, Infection Control</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">In-charge Nurse, Medicine Floor &#8211; BSH (Beirut Specialty Hospital)</div>
-                <div class="pow-cv-company">January 2025 &#8211; June 2025</div>
-                <div class="pow-cv-bullet">Supervised nursing team ensuring zero medication administration errors through audits and coaching.</div>
-                <div class="pow-cv-bullet">Delivered training on documentation standards, infection protocols, and nursing procedures.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Patient Admission Flow Manager &#8211; Tebnine Governmental Hospital</div>
-                <div class="pow-cv-company">January 2024 &#8211; December 2024</div>
-                <div class="pow-cv-bullet">Streamlined ER-to-ward admission process to reduce patient wait times and optimize turnover.</div>
-                <div class="pow-cv-bullet">Coordinated triage, ICU, and ward teams across bed management and patient discharges.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">Secured a nursing role at a reputable hospital in the Gulf.</span>
-            </div>
-          </div>
-        </div>
+<!-- CARD 3: RABIH K. -->
+<div class="pow-card" id="pow-card-rabih">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Rabih K.</span>
+      <span class="pow-client-role">Registered Nurse + MBA &#183; 12+ years clinical and teaching experience</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">Resume Optimization</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('rabih','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('rabih','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-rabih-loading">Loading resume...</div>
+    <canvas id="pow-rabih-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Secured a nursing role at a reputable hospital in the Gulf.</span>
+    </div>
+  </div>
+</div>
 
-        <!-- CARD 4: REINE A. -->
-        <div class="pow-card" id="pow-card-reine">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Reine A.</span>
-              <span class="pow-client-role">Fresh Graduate &#183; Business Management | Business Founder</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">CV Rewrite</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('reine','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('reine','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-reine-before">
-              <div class="pow-cv-name">Reine A.</div>
-              <div class="pow-cv-title">Business Management Graduate</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Profile</div>
-                <div class="pow-cv-objective">Motivated Business Management graduate with strong communication, teamwork skills. Passionate about process improvement and supporting daily business operations. Excited to contribute to a growing company and develop practical experience.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Key Competencies</div>
-                <div class="pow-cv-skills">Good level in Arabic, English, and French &#8211; customer service excellence &#8211; customer engagement &#8211; sales support &#8211; Client Relationship Handling &#8211; Time Management skills &#8211; Strategic Planning &#8211; Project Coordination &#8211; Decision Making &#8211; Positive Attitude.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Founder and owner of elegancebytwins2023</div>
-                <div class="pow-cv-company">October 2023 &#8211; Present</div>
-                <div class="pow-cv-bullet">Managed all aspects of daily business operations, including planning, inventory, and financial management.</div>
-                <div class="pow-cv-bullet">Developed and executed marketing strategies to attract and retain customers.</div>
-                <div class="pow-cv-bullet">Handled customer relations, ensuring high satisfaction and repeat business.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Private Tutor</div>
-                <div class="pow-cv-company">September 2024 &#8211; Present</div>
-                <div class="pow-cv-bullet">Planned and delivered personalized lessons to meet individual student needs.</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-reine-after" style="display:none">
-              <div class="pow-cv-name">Reine A.</div>
-              <div class="pow-cv-title">Business Management Graduate | Business Founder</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Business Management graduate and founder with hands-on experience managing end-to-end business operations, customer relations, and financial tracking. Proven ability to take ownership early, handle responsibility independently, and operate in fast-paced, customer-facing environments. Strong communicator with a practical mindset, experienced in coordinating daily operations and continuously improving processes to drive efficiency and satisfaction.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Competencies</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">Business Operations</span>
-                  <span class="pow-cv-comp-tag">Customer Relations</span>
-                  <span class="pow-cv-comp-tag">Sales Support</span>
-                  <span class="pow-cv-comp-tag">Budget Tracking</span>
-                  <span class="pow-cv-comp-tag">Process Improvement</span>
-                  <span class="pow-cv-comp-tag">Project Coordination</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Founder and Owner &#8211; EleganceByTwins</div>
-                <div class="pow-cv-company">October 2023 &#8211; Present | Lebanon</div>
-                <div class="pow-cv-bullet">Founded and operated a business managing planning, inventory, budgeting, purchasing, and daily operations end to end.</div>
-                <div class="pow-cv-bullet">Handled 30+ customer interactions monthly, ensuring high satisfaction and repeat business.</div>
-                <div class="pow-cv-bullet">Managed expense tracking and pricing decisions to maintain profitability and cost control.</div>
-                <div class="pow-cv-bullet">Continuously reviewed business performance and implemented process improvements to increase efficiency.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">Kicked off her career by landing her first professional role as a Marketing Associate.</span>
-            </div>
-          </div>
-          <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
-        </div>
+<!-- CARD 4: REINE A. -->
+<div class="pow-card" id="pow-card-reine">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Reine A.</span>
+      <span class="pow-client-role">Fresh Graduate &#183; Business Management | Business Founder</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('reine','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('reine','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-reine-loading">Loading resume...</div>
+    <canvas id="pow-reine-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Kicked off her career by landing her first professional role as a Marketing Associate.</span>
+    </div>
+  </div>
+  <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
+</div>
 
-        <!-- CARD 5: BASSEL A. -->
-        <div class="pow-card" id="pow-card-bassel">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Bassel A.</span>
-              <span class="pow-client-role">Senior Middleware and Integration Engineer &#183; 8+ years banking and fintech</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">CV Rewrite</span>
-              <span class="pow-badge">LinkedIn</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('bassel','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('bassel','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-bassel-before">
-              <div class="pow-cv-name">Bassel A.</div>
-              <div class="pow-cv-title">Computer Science Graduate</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Objective</div>
-                <div class="pow-cv-objective">To gain a position in a growing and respectable organization, allowing me to put my skills into use, all while contributing to my career growth, personal and professional development.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Technical Knowledge</div>
-                <div class="pow-cv-skills">Angular, C#, JavaScript, C++, Java, XML, XQuery, Spring Boot, SQL, Groovy, HTML5, JSON, SOAP and REST APIs &#8211; JDeveloper, Visual Studio Code, IntelliJ IDEA, SoapUI, Postman, IBM InfoSphere DataStage &#8211; Oracle Service Bus (OSB) 12c, ETL, Backbase CXP 5.X</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Senior Software Developer &#8211; Infostructure</div>
-                <div class="pow-cv-company">November 2023 &#8211; Present</div>
-                <div class="pow-cv-bullet">Expertise in Oracle ADF Architecture, JDeveloper, Oracle ADF Development with web services.</div>
-                <div class="pow-cv-bullet">Created best practices for SOA development and developed BPEL processes.</div>
-                <div class="pow-cv-bullet">Worked on C# and .NET framework to develop dynamic web applications.</div>
-                <div class="pow-cv-bullet">Supported SOA and OSB developers in day to day work.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Senior Software Lead &#8211; SGBL Bank</div>
-                <div class="pow-cv-company">October 2017 &#8211; November 2023</div>
-                <div class="pow-cv-bullet">Supported SOA and OSB developers in day to day work.</div>
-                <div class="pow-cv-bullet">Involved in implementation of best practices such as error handling, file archiving.</div>
-                <div class="pow-cv-bullet">Applied agile methodologies to deliver features ahead of schedule.</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-bassel-after" style="display:none">
-              <div class="pow-cv-name">Bassel A.</div>
-              <div class="pow-cv-title">Senior Middleware and Integration Engineer | Technical Lead</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Senior Middleware and Integration Engineer with 8+ years of experience architecting, developing, and leading enterprise-grade API ecosystems for banking and fintech institutions across MENA and Europe. Deep specialist in Oracle SOA/OSB, REST/SOAP API design, BPEL orchestration, and ETL pipelines. Mentored 10+ developers, owned full API delivery from requirements to production, and driven Agile ceremonies from stand-ups to retrospectives.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Competencies</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">Middleware Architecture (SOA, OSB, BPEL)</span>
-                  <span class="pow-cv-comp-tag">REST and SOAP API Design</span>
-                  <span class="pow-cv-comp-tag">Core Banking Integration</span>
-                  <span class="pow-cv-comp-tag">Technical Leadership (10+ Developers)</span>
-                  <span class="pow-cv-comp-tag">ETL Pipeline Design (IBM DataStage)</span>
-                  <span class="pow-cv-comp-tag">Agile and Scrum</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Senior Software Developer &#8211; Infostructure</div>
-                <div class="pow-cv-company">November 2023 &#8211; Present | Lebanon</div>
-                <div class="pow-cv-bullet">Architect and deliver enterprise REST and SOAP APIs using Oracle SOA Suite, OSB 12c, and WebLogic for clients including Bank Audi, Neo Bank, and Areeba.</div>
-                <div class="pow-cv-bullet">Act as technical liaison between business stakeholders and engineering teams: gathering requirements, defining API contracts, producing end-to-end documentation.</div>
-                <div class="pow-cv-bullet">Coach and mentor SOA and OSB developers on integration design patterns and best practices.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Senior Software Lead / Senior Developer &#8211; SGBL Bank</div>
-                <div class="pow-cv-company">October 2017 &#8211; November 2023 | Lebanon</div>
-                <div class="pow-cv-bullet">Led middleware team delivering REST and SOAP integrations for SGBL, SGBJ (Jordan), and SGBCY (Cyprus).</div>
-                <div class="pow-cv-bullet">Engineered Madfouaat.com government services integration and IBM DataStage ETL pipelines for enterprise data warehousing.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">Landed a senior engineering role.</span>
-            </div>
-          </div>
-          <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
-        </div>
+<!-- CARD 5: BASSEL A. -->
+<div class="pow-card" id="pow-card-bassel">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Bassel A.</span>
+      <span class="pow-client-role">Senior Middleware and Integration Engineer &#183; 8+ years banking and fintech</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('bassel','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('bassel','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-bassel-loading">Loading resume...</div>
+    <canvas id="pow-bassel-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Landed a senior engineering role.</span>
+    </div>
+  </div>
+  <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
+</div>
 
-        <!-- CARD 6: TAYMOUR G. -->
-        <div class="pow-card" id="pow-card-taymour">
-          <div class="pow-card-header">
-            <div>
-              <span class="pow-client-name">Taymour G.</span>
-              <span class="pow-client-role">Finance and Accounting Professional &#183; Career Shift</span>
-            </div>
-            <div class="pow-badges">
-              <span class="pow-badge">CV Rewrite</span>
-              <span class="pow-badge">LinkedIn</span>
-              <span class="pow-badge">Career Coaching</span>
-              <span class="pow-badge">Career Roadmap</span>
-              <span class="pow-badge">Job Search Support</span>
-            </div>
-          </div>
-          <div class="pow-tabs">
-            <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoW('taymour','before')">Before</button>
-            <button class="pow-tab-btn" data-tab="after" onclick="switchPoW('taymour','after')">After</button>
-          </div>
-          <div class="pow-preview-wrap">
-            <div class="pow-cv" id="pow-taymour-before">
-              <div class="pow-cv-name">Taymour G.</div>
-              <div class="pow-cv-title">Submitted as a personal summary, not a CV</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Personal Summary</div>
-                <div class="pow-cv-narrative">&#8220;After graduating from MUBS in business, I started my career in Blom Bank in Lebanon as a trainee, and then worked in the credit and information department for two years. I was one of many people laid off during the pandemic and financial crisis in Lebanon. In 2021, I took a very demanding job in Ain W Zain hospital in the admissions section for the emergency unit. After that in 2022, I started a very good and new position in AUBMC in the finance and control department as a cashier for the emergency unit...&#8221;</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Front-liner, Emergency Cashier</div>
-                <div class="pow-cv-company">AUBMC Hospital, Hamra Lebanon &#8211; 2022</div>
-                <div class="pow-cv-bullet">Discharge patient from hospital and ER by giving them clearance.</div>
-                <div class="pow-cv-bullet">Conduct basic accounting duties.</div>
-                <div class="pow-cv-bullet">Communicate with insurance to facilitate the process of the patient in ED.</div>
-                <div class="pow-cv-bullet">Close my cash box without any discrepancy when I finish my duty.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Front-liner, Emergency Admissions</div>
-                <div class="pow-cv-company">Ain W Zain Hospital, Mount Lebanon &#8211; 2021 to 2022</div>
-                <div class="pow-cv-bullet">Support patient admissions to ER and discharge.</div>
-                <div class="pow-cv-bullet">Liaise with insurance companies to admit patients.</div>
-                <div class="pow-cv-bullet">Conduct basic accounting duties.</div>
-              </div>
-            </div>
-            <div class="pow-cv pow-cv-after" id="pow-taymour-after" style="display:none">
-              <div class="pow-cv-name">Taymour G.</div>
-              <div class="pow-cv-title">Finance and Accounting Professional</div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Professional Summary</div>
-                <div class="pow-cv-summary">Finance and accounting professional with 7+ years of experience across financial operations, cash management, compliance, and multi-system data processing in banking and healthcare. Proven record of managing daily cash and credit card reconciliations of $15,000 USD with zero discrepancies across all financial cycles. Proficient in AS400, SAP, and Microsoft Excel. Seeking to apply this expertise in a dedicated accounting role.</div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Core Skills</div>
-                <div class="pow-cv-competencies">
-                  <span class="pow-cv-comp-tag">AS400</span>
-                  <span class="pow-cv-comp-tag">SAP</span>
-                  <span class="pow-cv-comp-tag">Microsoft Excel</span>
-                  <span class="pow-cv-comp-tag">Cash Reconciliation</span>
-                  <span class="pow-cv-comp-tag">Financial Clearance</span>
-                  <span class="pow-cv-comp-tag">Insurance Billing</span>
-                  <span class="pow-cv-comp-tag">Loan Processing</span>
-                  <span class="pow-cv-comp-tag">NSSF Documentation</span>
-                </div>
-              </div>
-              <div class="pow-cv-sect">
-                <div class="pow-cv-sect-label">Experience</div>
-                <div class="pow-cv-role">Financial Operations Specialist &#8211; AUBMC</div>
-                <div class="pow-cv-company">July 2022 &#8211; Present | Beirut, Lebanon</div>
-                <div class="pow-cv-bullet">Manage daily cash and credit card reconciliations averaging $15,000 USD per shift with zero discrepancies.</div>
-                <div class="pow-cv-bullet">Process financial clearances for 50+ cases per shift, coordinating between medical teams, patients, and insurance providers.</div>
-                <div class="pow-cv-bullet">Liaise with insurance companies to obtain approvals, resolve billing disputes, and ensure compliance.</div>
-                <div class="pow-cv-role" style="margin-top:8px">Banking and Financial Operations Analyst &#8211; BLOM Bank</div>
-                <div class="pow-cv-company">July 2016 &#8211; October 2018 | Beirut, Lebanon</div>
-                <div class="pow-cv-bullet">Processed consumer loan applications end-to-end, verifying documentation against banking compliance requirements.</div>
-                <div class="pow-cv-bullet">Prepared Credit Data Reports (CDR) and coordinated with customers, dealers, and corporate clients for accurate loan processing.</div>
-              </div>
-            </div>
-          </div>
-          <div class="pow-result">
-            <div class="pow-result-icon">&#8593;</div>
-            <div class="pow-result-inner">
-              <span class="pow-result-label">Outcome</span>
-              <span class="pow-result-text">Landed an accountant role after a successful career shift from healthcare finance into accounting.</span>
-            </div>
-          </div>
-          <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
-        </div>
+<!-- CARD 6: TAYMOUR G. -->
+<div class="pow-card" id="pow-card-taymour">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Taymour G.</span>
+      <span class="pow-client-role">Finance and Accounting Professional &#183; Career Shift</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+      <span class="pow-badge">Career Coaching</span>
+      <span class="pow-badge">Career Roadmap</span>
+      <span class="pow-badge">Job Search Support</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('taymour','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('taymour','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-taymour-loading">Loading resume...</div>
+    <canvas id="pow-taymour-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Landed an accountant role after a successful career shift from healthcare finance into accounting.</span>
+    </div>
+  </div>
+  <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
+</div>
+
+<!-- CARD 7: NACHAAT G. (hidden until See More) -->
+<div class="pow-card pow-card-hidden" id="pow-card-nachaat">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Nachaat G.</span>
+      <span class="pow-client-role">Radiologist &#183; Medical Imaging Specialist</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+      <span class="pow-badge">Cover Letter</span>
+      <span class="pow-badge">Career Coaching</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('nachaat','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('nachaat','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-nachaat-loading">Loading resume...</div>
+    <canvas id="pow-nachaat-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Landed as Senior Radiologist Specialist in the UAE.</span>
+    </div>
+  </div>
+  <button class="pow-tlink" onclick="document.getElementById('ch-testimonials-heading').scrollIntoView({behavior:'smooth'})">&#8593; See their testimonial</button>
+</div>
+
+<!-- CARD 8: RAYAN A. (hidden until See More) -->
+<div class="pow-card pow-card-hidden" id="pow-card-rayan-b">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Rayan A.</span>
+      <span class="pow-client-role">Radiology Technologist &#183; 9+ years multi-modality imaging</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+      <span class="pow-badge">Cover Letter</span>
+      <span class="pow-badge">Career Coaching</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('rayan-b','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('rayan-b','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-rayan-b-loading">Loading resume...</div>
+    <canvas id="pow-rayan-b-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Received multiple offers and significantly increased LinkedIn visibility.</span>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 9: MAHER A. (hidden until See More) -->
+<div class="pow-card pow-card-hidden" id="pow-card-maher">
+  <div class="pow-card-header">
+    <div>
+      <span class="pow-client-name">Maher A.</span>
+      <span class="pow-client-role">MEP Engineer and Construction Manager &#183; 5+ years</span>
+    </div>
+    <div class="pow-badges">
+      <span class="pow-badge">CV Rewrite</span>
+      <span class="pow-badge">LinkedIn</span>
+    </div>
+  </div>
+  <div class="pow-tabs">
+    <button class="pow-tab-btn pow-active" data-tab="before" onclick="switchPoWImg('maher','before')">Before</button>
+    <button class="pow-tab-btn" data-tab="after" onclick="switchPoWImg('maher','after')">After</button>
+  </div>
+  <div class="pow-screenshot-frame">
+    <div class="pow-screenshot-bar"></div>
+    <div class="pow-canvas-loading" id="pow-maher-loading">Loading resume...</div>
+    <canvas id="pow-maher-canvas" class="pow-resume-canvas"></canvas>
+  </div>
+  <div class="pow-result">
+    <div class="pow-result-icon">&#8593;</div>
+    <div class="pow-result-inner">
+      <span class="pow-result-label">Outcome</span>
+      <span class="pow-result-text">Landed a senior MEP role in Saudi Arabia.</span>
+    </div>
+  </div>
+</div>
 
         </div>
+        <button id="pow-show-more-btn" class="pow-show-more-btn" onclick="showMoreCards()">See more transformations &#8595;</button>
       </div>
 
       <div class="pow-subsection">
@@ -1571,12 +1414,6 @@
         </div>
       </div>
 
-      <div class="pow-subsection">
-        <div class="pow-subsection-title">Deployed Websites</div>
-        <div class="pow-coming-soon-card">
-          <span class="pow-coming-soon-label">Coming Soon</span>
-        </div>
-      </div>
 
     </div>
     </div>
@@ -1947,17 +1784,97 @@
     });
   })();
 
-  function switchPoW(cardId, tab) {
+  var powRendered = {};
+
+  function renderPDFToCanvas(pdfUrl, canvasId, loadingId) {
+    var lib = window.pdfjsLib;
+    if (!lib) return;
+
+    var canvas = document.getElementById(canvasId);
+    var loading = document.getElementById(loadingId);
+    if (!canvas) return;
+
+    if (loading) loading.classList.remove('pow-loaded');
+
+    lib.getDocument(pdfUrl).promise.then(function(pdf) {
+      return pdf.getPage(1);
+    }).then(function(page) {
+      var canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      var frameWidth = (canvas.parentElement && canvas.parentElement.offsetWidth) ? canvas.parentElement.offsetWidth : 280;
+      var viewport = page.getViewport({ scale: 1 });
+      var scale = frameWidth / viewport.width;
+      var scaled = page.getViewport({ scale: scale });
+      canvas.width = scaled.width;
+      canvas.height = scaled.height;
+      return page.render({ canvasContext: canvas.getContext('2d'), viewport: scaled }).promise;
+    }).then(function() {
+      var loading = document.getElementById(loadingId);
+      if (loading) loading.classList.add('pow-loaded');
+    }).catch(function(err) {
+      var loading = document.getElementById(loadingId);
+      if (loading) loading.classList.add('pow-loaded');
+      console.warn('PDF render error:', pdfUrl, err);
+    });
+  }
+
+  function switchPoWImg(cardId, tab) {
+    powRendered[cardId] = true;
+    renderPDFToCanvas(
+      'proof-of-work/' + cardId + '-' + tab + '.pdf',
+      'pow-' + cardId + '-canvas',
+      'pow-' + cardId + '-loading'
+    );
     var card = document.getElementById('pow-card-' + cardId);
-    var beforeEl = document.getElementById('pow-' + cardId + '-before');
-    var afterEl = document.getElementById('pow-' + cardId + '-after');
-    if (beforeEl) beforeEl.style.display = tab === 'before' ? 'block' : 'none';
-    if (afterEl) afterEl.style.display = tab === 'after' ? 'block' : 'none';
     if (card) {
       card.querySelectorAll('.pow-tab-btn').forEach(function(btn) {
         btn.classList.toggle('pow-active', btn.getAttribute('data-tab') === tab);
       });
     }
+  }
+
+  function switchPoW(cardId, tab) { switchPoWImg(cardId, tab); }
+
+  function showMoreCards() {
+    document.querySelectorAll('.pow-card-hidden').forEach(function(card) {
+      card.classList.remove('pow-card-hidden');
+    });
+    var btn = document.getElementById('pow-show-more-btn');
+    if (btn) btn.style.display = 'none';
+  }
+
+  function initPowCards() {
+    var lib = window.pdfjsLib;
+    if (!lib) return;
+    lib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.pow-card:not(.pow-card-hidden)').forEach(function(card) {
+        var cardId = card.id.replace('pow-card-', '');
+        if (!powRendered[cardId]) {
+          powRendered[cardId] = true;
+          renderPDFToCanvas('proof-of-work/' + cardId + '-before.pdf', 'pow-' + cardId + '-canvas', 'pow-' + cardId + '-loading');
+        }
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var cardId = entry.target.id.replace('pow-card-', '');
+          if (!powRendered[cardId]) {
+            powRendered[cardId] = true;
+            renderPDFToCanvas('proof-of-work/' + cardId + '-before.pdf', 'pow-' + cardId + '-canvas', 'pow-' + cardId + '-loading');
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '120px', threshold: 0 });
+
+    document.querySelectorAll('.pow-card').forEach(function(card) {
+      observer.observe(card);
+    });
   }
 
   const overlay=document.getElementById('overlay');
@@ -1999,6 +1916,7 @@
       }
     });
   });
+  initPowCards();
 </script>
 <script>
 (function(){
