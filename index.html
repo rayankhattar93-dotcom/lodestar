@@ -251,7 +251,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.25rem;
-  align-items: start;
 }
 @media (max-width: 960px) {
   .pow-list { grid-template-columns: 1fr 1fr; }
@@ -262,43 +261,30 @@
 .pow-card-hidden { display: none; }
 
 .pow-screenshot-frame {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  min-height: 180px;
-  max-height: 260px;
   overflow: hidden;
   border-radius: 8px;
-  background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 4px 18px rgba(0,0,0,0.35);
   margin-bottom: 1rem;
 }
 .pow-screenshot-bar {
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  width: 100%;
   height: 5px;
   background: linear-gradient(90deg, #C026D3, #06B6D4);
   border-radius: 8px 8px 0 0;
-  z-index: 3;
+  flex-shrink: 0;
 }
-.pow-canvas-loading {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.02);
-  z-index: 2;
-  pointer-events: none;
-}
-.pow-canvas-loading.pow-loaded { display: none; }
-.pow-resume-canvas {
+.pow-cv-frame {
   display: block;
   width: 100%;
-  position: relative;
-  z-index: 1;
+  height: 500px;
+  border: none;
+}
+@media (max-width: 600px) {
+  .pow-cv-frame { height: 420px; }
 }
 .pow-show-more-btn {
   display: block;
@@ -319,8 +305,13 @@
   border-color: rgba(255,255,255,0.28);
   color: #fff;
 }
-  .pow-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem}
-  .pow-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap}
+  .pow-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column}
+  .pow-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
   .pow-client-name{font-size:.975rem;font-weight:600;color:var(--text);display:block}
   .pow-client-role{font-size:.78rem;color:var(--muted);margin-top:3px;display:block}
   .pow-badges{display:flex;flex-wrap:wrap;gap:5px}
@@ -652,7 +643,6 @@
 
 
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 <div class="bg-aura"></div>
@@ -1099,7 +1089,7 @@
         <h3 class="ch-sub-title" id="ch-testimonials-heading">What Our Clients Say</h3>
       </div>
       <div class="quotes">
-        <div class="quote reveal d1"><div class="mark">"</div><p>Once my resume and LinkedIn were rebuilt properly, the offers came to me. I was headhunted several times and ended up choosing between multiple offers.</p><div class="who"><div class="av"></div><div><b>Nachaat G.</b><span>Radiology Technologist &amp; University Lecturer</span></div></div><div class="testi-outcome">Landed as Senior Radiologist Specialist in the UAE.</div></div>
+        <div class="quote reveal d1"><div class="mark">"</div><p>Once my resume and LinkedIn were rebuilt properly, the offers came to me. I was headhunted several times and ended up choosing between multiple offers.</p><div class="who"><div class="av"></div><div><b>Nachaat G.</b><span>Radiology Technologist &amp; University Lecturer</span></div></div></div>
         <div class="quote reveal d2"><div class="mark">"</div><p>My experience finally read the way it deserved to. Recruiters started reaching out directly, and I had several strong offers on the table.</p><div class="who"><div class="av"></div><div><b>Bassel A.</b><span>Senior Middleware &amp; Integration Engineer · Technical Lead</span></div></div></div>
         <div class="quote reveal d3"><div class="mark">"</div><p>I'd never even had a LinkedIn. They built mine from scratch, coached me through the whole search, and stayed with me until I landed the role.</p><div class="who"><div class="av"></div><div><b>Nassib A.</b><span>Registered Nurse · Emergency &amp; Home Care</span></div></div></div>
         <div class="quote reveal d1"><div class="mark">"</div><p>It wasn't just documents. The coaching helped me get clear on my direction, and the resume and LinkedIn opened the right doors in finance.</p><div class="who"><div class="av"></div><div><b>Taymur G.</b><span>Banking &amp; Finance</span></div></div></div>
@@ -1113,16 +1103,14 @@
       </div>
 
       <div class="pow-subsection">
-        <div class="pow-subsection-title">CV Transformations</div>
+        <div class="pow-subsection-title">Career Transformations</div>
         <div class="pow-list">
 
 <!-- CARD 1: JALAL A. -->
 <div class="pow-card" id="pow-card-jalal">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Jalal A.</span>
-      <span class="pow-client-role">Registered Nurse &#183; 6 years experience</span>
-    </div>
+    <span class="pow-client-name">Jalal A.</span>
+    <span class="pow-client-role">Registered Nurse</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
     </div>
@@ -1133,8 +1121,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-jalal-loading">Loading resume...</div>
-    <canvas id="pow-jalal-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-jalal-frame" class="pow-cv-frame" src="proof-of-work/jalal-before.pdf" title="Jalal A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1148,10 +1135,8 @@
 <!-- CARD 2: NASSIB A. -->
 <div class="pow-card" id="pow-card-nassib">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Nassib A.</span>
-      <span class="pow-client-role">Registered Nurse &#183; 10+ years emergency and critical care</span>
-    </div>
+    <span class="pow-client-name">Nassib A.</span>
+    <span class="pow-client-role">Registered Nurse · Emergency and Critical Care</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1166,8 +1151,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-nassib-loading">Loading resume...</div>
-    <canvas id="pow-nassib-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-nassib-frame" class="pow-cv-frame" src="proof-of-work/nassib-before.pdf" title="Nassib A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1182,10 +1166,8 @@
 <!-- CARD 3: RABIH K. -->
 <div class="pow-card" id="pow-card-rabih">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Rabih K.</span>
-      <span class="pow-client-role">Registered Nurse + MBA &#183; 12+ years clinical and teaching experience</span>
-    </div>
+    <span class="pow-client-name">Rabih K.</span>
+    <span class="pow-client-role">Registered Nurse + MBA · Clinical and Teaching</span>
     <div class="pow-badges">
       <span class="pow-badge">Resume Optimization</span>
     </div>
@@ -1196,8 +1178,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-rabih-loading">Loading resume...</div>
-    <canvas id="pow-rabih-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-rabih-frame" class="pow-cv-frame" src="proof-of-work/rabih-before.pdf" title="Rabih K. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1211,10 +1192,8 @@
 <!-- CARD 4: REINE A. -->
 <div class="pow-card" id="pow-card-reine">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Reine A.</span>
-      <span class="pow-client-role">Fresh Graduate &#183; Business Management | Business Founder</span>
-    </div>
+    <span class="pow-client-name">Reine A.</span>
+    <span class="pow-client-role">Fresh Graduate · Business Management | Business Founder</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
     </div>
@@ -1225,8 +1204,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-reine-loading">Loading resume...</div>
-    <canvas id="pow-reine-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-reine-frame" class="pow-cv-frame" src="proof-of-work/reine-before.pdf" title="Reine A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1241,10 +1219,8 @@
 <!-- CARD 5: BASSEL A. -->
 <div class="pow-card" id="pow-card-bassel">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Bassel A.</span>
-      <span class="pow-client-role">Senior Middleware and Integration Engineer &#183; 8+ years banking and fintech</span>
-    </div>
+    <span class="pow-client-name">Bassel A.</span>
+    <span class="pow-client-role">Senior Middleware and Integration Engineer · Banking and Fintech</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1256,8 +1232,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-bassel-loading">Loading resume...</div>
-    <canvas id="pow-bassel-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-bassel-frame" class="pow-cv-frame" src="proof-of-work/bassel-before.pdf" title="Bassel A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1272,10 +1247,8 @@
 <!-- CARD 6: TAYMOUR G. -->
 <div class="pow-card" id="pow-card-taymour">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Taymour G.</span>
-      <span class="pow-client-role">Finance and Accounting Professional &#183; Career Shift</span>
-    </div>
+    <span class="pow-client-name">Taymour G.</span>
+    <span class="pow-client-role">Finance and Accounting Professional · Career Shift</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1290,8 +1263,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-taymour-loading">Loading resume...</div>
-    <canvas id="pow-taymour-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-taymour-frame" class="pow-cv-frame" src="proof-of-work/taymour-before.pdf" title="Taymour G. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1306,10 +1278,8 @@
 <!-- CARD 7: NACHAAT G. (hidden until See More) -->
 <div class="pow-card pow-card-hidden" id="pow-card-nachaat">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Nachaat G.</span>
-      <span class="pow-client-role">Radiologist &#183; Medical Imaging Specialist</span>
-    </div>
+    <span class="pow-client-name">Nachaat G.</span>
+    <span class="pow-client-role">Radiologist · Medical Imaging Specialist</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1323,8 +1293,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-nachaat-loading">Loading resume...</div>
-    <canvas id="pow-nachaat-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-nachaat-frame" class="pow-cv-frame" src="proof-of-work/nachaat-before.pdf" title="Nachaat G. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1339,10 +1308,8 @@
 <!-- CARD 8: RAYAN A. (hidden until See More) -->
 <div class="pow-card pow-card-hidden" id="pow-card-rayan-b">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Rayan A.</span>
-      <span class="pow-client-role">Radiology Technologist &#183; 9+ years multi-modality imaging</span>
-    </div>
+    <span class="pow-client-name">Rayan A.</span>
+    <span class="pow-client-role">Radiology Technologist · Multi-Modality Imaging</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1356,8 +1323,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-rayan-b-loading">Loading resume...</div>
-    <canvas id="pow-rayan-b-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-rayan-b-frame" class="pow-cv-frame" src="proof-of-work/rayan-b-before.pdf" title="Rayan A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1371,10 +1337,8 @@
 <!-- CARD 9: MAHER A. (hidden until See More) -->
 <div class="pow-card pow-card-hidden" id="pow-card-maher">
   <div class="pow-card-header">
-    <div>
-      <span class="pow-client-name">Maher A.</span>
-      <span class="pow-client-role">MEP Engineer and Construction Manager &#183; 5+ years</span>
-    </div>
+    <span class="pow-client-name">Maher A.</span>
+    <span class="pow-client-role">MEP Engineer and Construction Manager</span>
     <div class="pow-badges">
       <span class="pow-badge">CV Rewrite</span>
       <span class="pow-badge">LinkedIn</span>
@@ -1386,8 +1350,7 @@
   </div>
   <div class="pow-screenshot-frame">
     <div class="pow-screenshot-bar"></div>
-    <div class="pow-canvas-loading" id="pow-maher-loading">Loading resume...</div>
-    <canvas id="pow-maher-canvas" class="pow-resume-canvas"></canvas>
+    <iframe id="pow-maher-frame" class="pow-cv-frame" src="proof-of-work/maher-before.pdf" title="Maher A. CV"></iframe>
   </div>
   <div class="pow-result">
     <div class="pow-result-icon">&#8593;</div>
@@ -1783,47 +1746,11 @@
     });
   })();
 
-  var powRendered = {};
-
-  function renderPDFToCanvas(pdfUrl, canvasId, loadingId) {
-    var lib = window.pdfjsLib;
-    if (!lib) return;
-
-    var canvas = document.getElementById(canvasId);
-    var loading = document.getElementById(loadingId);
-    if (!canvas) return;
-
-    if (loading) loading.classList.remove('pow-loaded');
-
-    lib.getDocument(pdfUrl).promise.then(function(pdf) {
-      return pdf.getPage(1);
-    }).then(function(page) {
-      var canvas = document.getElementById(canvasId);
-      if (!canvas) return;
-      var frameWidth = (canvas.parentElement && canvas.parentElement.offsetWidth) ? canvas.parentElement.offsetWidth : 280;
-      var viewport = page.getViewport({ scale: 1 });
-      var scale = frameWidth / viewport.width;
-      var scaled = page.getViewport({ scale: scale });
-      canvas.width = scaled.width;
-      canvas.height = scaled.height;
-      return page.render({ canvasContext: canvas.getContext('2d'), viewport: scaled }).promise;
-    }).then(function() {
-      var loading = document.getElementById(loadingId);
-      if (loading) loading.classList.add('pow-loaded');
-    }).catch(function(err) {
-      var loading = document.getElementById(loadingId);
-      if (loading) loading.classList.add('pow-loaded');
-      console.warn('PDF render error:', pdfUrl, err);
-    });
-  }
-
   function switchPoWImg(cardId, tab) {
-    powRendered[cardId] = true;
-    renderPDFToCanvas(
-      'proof-of-work/' + cardId + '-' + tab + '.pdf',
-      'pow-' + cardId + '-canvas',
-      'pow-' + cardId + '-loading'
-    );
+    var frame = document.getElementById('pow-' + cardId + '-frame');
+    if (frame) {
+      frame.src = 'proof-of-work/' + cardId + '-' + tab + '.pdf';
+    }
     var card = document.getElementById('pow-card-' + cardId);
     if (card) {
       card.querySelectorAll('.pow-tab-btn').forEach(function(btn) {
@@ -1840,40 +1767,6 @@
     });
     var btn = document.getElementById('pow-show-more-btn');
     if (btn) btn.style.display = 'none';
-  }
-
-  function initPowCards() {
-    var lib = window.pdfjsLib;
-    if (!lib) return;
-    lib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.pow-card:not(.pow-card-hidden)').forEach(function(card) {
-        var cardId = card.id.replace('pow-card-', '');
-        if (!powRendered[cardId]) {
-          powRendered[cardId] = true;
-          renderPDFToCanvas('proof-of-work/' + cardId + '-before.pdf', 'pow-' + cardId + '-canvas', 'pow-' + cardId + '-loading');
-        }
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var cardId = entry.target.id.replace('pow-card-', '');
-          if (!powRendered[cardId]) {
-            powRendered[cardId] = true;
-            renderPDFToCanvas('proof-of-work/' + cardId + '-before.pdf', 'pow-' + cardId + '-canvas', 'pow-' + cardId + '-loading');
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '120px', threshold: 0 });
-
-    document.querySelectorAll('.pow-card').forEach(function(card) {
-      observer.observe(card);
-    });
   }
 
   const overlay=document.getElementById('overlay');
@@ -1915,7 +1808,6 @@
       }
     });
   });
-  initPowCards();
 </script>
 <script>
 (function(){
