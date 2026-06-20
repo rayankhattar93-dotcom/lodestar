@@ -712,16 +712,15 @@
   }
 
   /* ---------- TRUST SHORTCUTS (ls-trust-shortcuts) ---------- */
-  .ls-trust-shortcuts{display:flex;gap:24px;margin-top:20px}
-  .ls-trust-shortcuts__card{flex:1;display:flex;align-items:flex-start;gap:16px;padding:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;text-decoration:none;color:inherit;cursor:pointer;transition:border-color .25s}
-  .ls-trust-shortcuts__card:hover{border-color:#06B6D4}
-  .ls-trust-shortcuts__icon{flex-shrink:0;width:22px;height:22px;color:#06B6D4;margin-top:2px}
-  .ls-trust-shortcuts__icon svg{width:22px;height:22px}
-  .ls-trust-shortcuts__label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:6px}
-  .ls-trust-shortcuts__sub{font-size:.9rem;color:var(--muted);line-height:1.5}
+  .ls-trust-shortcuts{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .ls-trust-shortcuts__card{background:linear-gradient(160deg,rgba(30,24,64,.7),rgba(18,14,34,.5));border:1px solid var(--line-2);border-radius:26px;padding:36px;cursor:pointer;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit}
+  .ls-trust-shortcuts__card:hover{transform:translateY(-6px);border-color:var(--magenta);box-shadow:var(--glow-m)}
+  .ls-trust-shortcuts__icon{width:52px;height:52px;border-radius:16px;background:var(--grad-soft);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--cyan)}
+  .ls-trust-shortcuts__title{font-size:1.35rem;margin:0}
+  .ls-trust-shortcuts__desc{color:var(--muted);font-size:.97rem;margin:0;flex:1}
+  .ls-trust-shortcuts__link{font-size:.9rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:auto}
   @media(max-width:767px){
-    .ls-trust-shortcuts{flex-direction:column;gap:16px}
-    .ls-trust-shortcuts__card{width:100%}
+    .ls-trust-shortcuts{grid-template-columns:1fr}
   }
 
 </style>
@@ -913,7 +912,7 @@
     </section>
   </div>
 
-  <section style="padding-top:20px">
+  <section style="padding-top:20px;padding-bottom:32px">
     <div class="wrap">
       <div class="truth glass reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;padding:0">
         <div style="padding:44px 44px 44px 44px;display:flex;flex-direction:column;justify-content:center">
@@ -932,22 +931,20 @@
     </div>
   </section>
 
-  <section style="padding-top:12px;padding-bottom:0">
+  <section style="padding-top:8px;padding-bottom:56px">
     <div class="wrap">
       <div class="ls-trust-shortcuts">
         <a class="ls-trust-shortcuts__card" data-go="stories">
-          <span class="ls-trust-shortcuts__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          <div>
-            <div class="ls-trust-shortcuts__label">Credibility Hub</div>
-            <div class="ls-trust-shortcuts__sub">Real resumes, real LinkedIn profiles, real before-and-after results.</div>
-          </div>
+          <div class="ls-trust-shortcuts__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="8 12 11 15 16 9"/></svg></div>
+          <h3 class="ls-trust-shortcuts__title">Credibility Hub</h3>
+          <p class="ls-trust-shortcuts__desc">Real resumes, real LinkedIn profiles, real before-and-after results.</p>
+          <span class="ls-trust-shortcuts__link">View hub &rarr;</span>
         </a>
         <a class="ls-trust-shortcuts__card" data-go="about">
-          <span class="ls-trust-shortcuts__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-          <div>
-            <div class="ls-trust-shortcuts__label">Who We Are</div>
-            <div class="ls-trust-shortcuts__sub">Meet the person behind Lodestar and how we work.</div>
-          </div>
+          <div class="ls-trust-shortcuts__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.3"/><path d="M3 20c0-3.5 3-5.5 6-5.5s6 2 6 5.5"/><path d="M14 14.5c2 .3 4 1.8 4 5.5"/></svg></div>
+          <h3 class="ls-trust-shortcuts__title">Who We Are</h3>
+          <p class="ls-trust-shortcuts__desc">Meet the person behind Lodestar and how we work.</p>
+          <span class="ls-trust-shortcuts__link">Meet us &rarr;</span>
         </a>
       </div>
     </div>
