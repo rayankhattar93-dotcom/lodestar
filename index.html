@@ -684,6 +684,32 @@
   .form-consent-link{color:inherit;text-decoration:underline;cursor:pointer;opacity:0.85}
   .form-consent-link:hover{opacity:1}
 
+  /* ---------- SERVICES CAROUSEL (ls-service-carousel) ---------- */
+  .ls-service-carousel__outer{position:relative;margin-top:48px}
+  .ls-service-carousel__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:8px 4px 20px;scrollbar-width:none;-ms-overflow-style:none}
+  .ls-service-carousel__track::-webkit-scrollbar{display:none}
+  .ls-service-carousel__card{flex:0 0 auto;width:300px;aspect-ratio:4/5;scroll-snap-align:start;border-radius:20px;position:relative;overflow:hidden;text-decoration:none;cursor:pointer;display:block}
+  .ls-service-carousel__card-bg{position:absolute;inset:0;background-size:cover;background-position:center;border-radius:inherit;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  .ls-service-carousel__card:hover .ls-service-carousel__card-bg{transform:scale(1.04)}
+  .ls-service-carousel__card-panel{position:absolute;bottom:16px;left:16px;right:16px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);border-radius:12px;padding:12px}
+  .ls-service-carousel__badge{flex-shrink:0;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+  .ls-service-carousel__badge svg{width:22px;height:22px}
+  .ls-service-carousel__label{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.97rem;color:#fff;line-height:1.3}
+  .ls-service-carousel__card--cta{background:linear-gradient(100deg,#C026D3,#A24DD6 52%,#06B6D4);display:flex;align-items:center;justify-content:center}
+  .ls-service-carousel__cta-inner{display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px;text-align:center}
+  .ls-service-carousel__cta-inner svg{width:44px;height:44px}
+  .ls-service-carousel__cta-inner span{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#fff}
+  .ls-service-carousel__arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(237,234,247,.18);background:rgba(11,9,24,.7);backdrop-filter:blur(8px);color:#EDEAF7;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background .2s,border-color .2s}
+  .ls-service-carousel__arrow:hover{background:rgba(192,38,211,.25);border-color:rgba(192,38,211,.5)}
+  .ls-service-carousel__arrow--prev{left:-23px}
+  .ls-service-carousel__arrow--next{right:-23px}
+  .ls-service-carousel__dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
+  .ls-service-carousel__dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(237,234,247,.2);cursor:pointer;padding:0;transition:background .2s,transform .2s}
+  .ls-service-carousel__dot--active{background:linear-gradient(100deg,#C026D3,#06B6D4);transform:scale(1.35)}
+  @media(max-width:767px){
+    .ls-service-carousel__arrow{display:none}
+    .ls-service-carousel__card{width:80vw}
+  }
 
 </style>
 </head>
@@ -739,33 +765,97 @@
     </div>
   </header>
 
-  <section id="services" style="padding-top:72px;padding-bottom:20px">
+  <section id="services" style="padding-top:72px;padding-bottom:56px">
     <div class="wrap">
       <div class="reveal" style="text-align:center;margin-left:auto;margin-right:auto">
         <div class="eyebrow">What we offer</div>
-        <h2 class="sec-title">Every service built around <span class="grad-text">your story.</span></h2>
-        <p class="sec-lead" style="max-width:520px;margin:0 auto">From your first resume to a business website to the operating system of your professional life, everything we do is designed to make you clearer, sharper, and harder to ignore.</p>
+        <h2 class="sec-title">Nine services. <span class="grad-text">One partner.</span></h2>
       </div>
-      <div class="svc-grid">
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><div class="num">01</div></div><h3>Career Roadmap</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The foundation</p><p>Before you write a single word or send a single application, you need clarity. Where are you actually going? What story are you telling? What makes you the obvious choice? The Career Roadmap is a full strategic session where we define your positioning, identify your target, and build the plan that makes everything else coherent and compelling: your resume, your LinkedIn, your pitch. And it does not stop when you land the role. We help you build your roadmap inside a new position too: how you grow, how you document your impact, and how you set yourself up for what comes next.</p></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic">CV</div><div class="num">02</div></div><h3>Resume Writing</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your first impression</p><p>Most resumes list what you did. Yours will show what you changed, what you built, and why it mattered. We write it from scratch, no templates, no filler, no generic bullet points dressed up with action verbs. Every line is written to position you precisely for the role you want, in the voice of someone who actually knows their value. Because a recruiter drowning in near-identical documents will stop at yours. Every resume also goes through an ATS compatibility check, so your document survives the software screen before it ever reaches human eyes. And because one document never fits every application, we show you exactly how to adapt it for each role in minutes, not hours.</p><span class="svc-tag">Signature</span></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic">in</div><div class="num">03</div></div><h3>LinkedIn Profile Optimization</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your digital presence</p><p>LinkedIn is no longer optional. It is where recruiters verify you, where opportunities find you, and where your professional story lives permanently. We rewrite your headline, summary, and experience to do three things: rank in search, communicate your value instantly, and make the right people want to reach out. Your profile should be opening doors, not closing them. Beyond the rewrite, we audit your settings, your featured section, and your visibility strategy, so the algorithm starts working for you instead of against you. You leave with a profile that ranks in recruiter search and a simple routine to keep it active without living on the platform.</p><span class="svc-tag">Signature</span></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg></div><div class="num">04</div></div><h3>Career Coaching</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The partner in your corner</p><p>Sometimes what you need is not another document, it is someone who will sit with you, understand where you actually are, and help you think through what comes next with honesty and without judgment. Career Coaching is ongoing, structured support for the moments that matter: a pivot you are unsure about, a role you are doubting, a version of yourself you are trying to build. We work on how you think, how you communicate, and how you show up, because those are the things that actually determine where you end up.</p><span class="svc-tag">Signature</span></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9l10 13L22 9z"/></svg></div><div class="num">05</div></div><h3>Interview Prep &amp; Job Search Strategy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">From search to offer</p><p>Most job searches fail not because of qualifications, but because of approach and performance. We fix both. We build a targeted search strategy around your positioning, the right companies, the right roles, the right outreach, and we run full mock interview sessions to make sure you are ready when the room matters. How you structure your answers, how you carry yourself, how you close. You will not just be prepared. You will be the candidate they cannot stop thinking about.</p><span class="svc-tag">Signature</span></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="num">06</div></div><h3>Personal Portfolio Website</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">Your corner of the internet</p><p>For professionals who want to stand out, a personal portfolio site is no longer a nice-to-have. It is the one place where your story, your work, your voice, and your personality live together, fully in your control. We design and build yours from scratch: clean, fast, memorable, and written to position you exactly the way you want to be seen. Whether you are a designer, a PM, an engineer, or a consultant, you deserve a home on the internet.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="num">07</div></div><h3>Business Website</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">For businesses ready to be seen</p><p>A business without a proper web presence is invisible. We build websites for small businesses, startups, and independent operators who need more than a template, they need a site that communicates credibility, converts visitors, and reflects the real quality of what they offer. From the copy to the design to the structure, every decision is made with your customer in mind. We handle the full journey: domain, hosting, copy, design, and launch, then hand you a site you actually own and can update without calling a developer every time something changes. Fast to load, simple to manage, and built to make the right first impression every time someone searches your name.</p></div>
-        <div class="svc reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><div class="num">08</div></div><h3>Digital Product Strategy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">From idea to roadmap</p><p>Whether you are an entrepreneur with a product concept, a founder preparing for development, or a team that needs clarity before building, we turn ideas into structured plans. We facilitate MVP scoping, define the product vision, write the PRD, map the user flows, and prepare everything a development team needs to execute. No vague briefs. No wasted sprints. Just a clear, defensible plan you can actually build from. You walk away with a complete product package: vision document, PRD, user flows, and a prioritized roadmap, ready to hand to any development team and defend in any stakeholder meeting. Built by someone who has shipped products, not just planned them.</p></div>
-        <div class="svc feature reveal"><div class="svc-head"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg></div><div class="num">09</div></div><h3>Notion Consultancy</h3><p class="detail" style="font-size:.82rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px;padding:0;border:none">The operating system for your life and work</p><p>I did not just start using Notion. I rebuilt my entire professional and personal life inside it. My job search. My career documentation. My learning systems. My project tracking. My thinking. Every part of how I operate runs through a Notion workspace I designed from scratch, and over time, it became the single most powerful productivity shift I have ever made. I now help individuals and teams do the same: build a Notion system that actually fits how they think, eliminates the chaos, and becomes the operating system they never knew they needed. If your digital life feels scattered, this is where we fix it.</p><span class="svc-tag">Signature</span></div>
-      </div>
-      <div style="margin-top:52px" class="reveal">
-        <div class="strip glass">
-          <div>
-            <div class="eyebrow m">Pricing</div>
-            <h3>Fair, flexible, and risk-free to start.</h3>
-            <p>A pay-as-you-can starter for those at the beginning, full packages for everyone else, and you only pay once you've seen the value in your free consultation.</p>
-          </div>
-          <button class="btn btn-primary" data-go="book">Book free consultation</button>
+      <div class="ls-service-carousel__outer reveal d1">
+        <button class="ls-service-carousel__arrow ls-service-carousel__arrow--prev" id="lsCarouselPrev" aria-label="Previous service"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <div class="ls-service-carousel__track" id="lsCarouselTrack">
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Career Roadmap service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/01-career-roadmap.jpg'),linear-gradient(160deg,#C026D3 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#C026D3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><polygon points="12,7 14,12 12,17 10,12" fill="#fff" stroke="none"/></svg></div>
+              <span class="ls-service-carousel__label">Career Roadmap</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Resume Writing service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/02-resume-writing.jpg'),linear-gradient(160deg,#A938D3 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#A938D3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg></div>
+              <span class="ls-service-carousel__label">Resume Writing</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View LinkedIn Profile Optimization service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/03-linkedin-optimization.jpg'),linear-gradient(160deg,#924AD3 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#924AD3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+              <span class="ls-service-carousel__label">LinkedIn Profile Optimization</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Career Coaching service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/04-career-coaching.jpg'),linear-gradient(160deg,#7A5CD3 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#7A5CD3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 5h16v10H9l-4 4V5z"/><circle cx="9" cy="10" r="0.6" fill="#fff" stroke="none"/><circle cx="12" cy="10" r="0.6" fill="#fff" stroke="none"/><circle cx="15" cy="10" r="0.6" fill="#fff" stroke="none"/></svg></div>
+              <span class="ls-service-carousel__label">Career Coaching</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Interview Prep and Job Search Strategy service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/05-interview-prep.jpg'),linear-gradient(160deg,#636ED4 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#636ED4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1"/><rect x="17" y="13" width="4" height="6" rx="1"/></svg></div>
+              <span class="ls-service-carousel__label">Interview Prep &amp; Job Search Strategy</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Personal Portfolio Website service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/06-portfolio-website.jpg'),linear-gradient(160deg,#4C80D4 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#4C80D4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="8" x2="21" y2="8"/></svg></div>
+              <span class="ls-service-carousel__label">Personal Portfolio Website</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Business Website service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/07-business-website.jpg'),linear-gradient(160deg,#3592D4 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#3592D4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 9l1-5h14l1 5"/><path d="M4 9v10h16V9"/><line x1="9" y1="19" x2="9" y2="13"/><line x1="15" y1="19" x2="15" y2="13"/></svg></div>
+              <span class="ls-service-carousel__label">Business Website</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Digital Product Strategy service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/08-product-strategy.jpg'),linear-gradient(160deg,#1DA4D4 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#1DA4D4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8"/><path d="M8 6h2a6 6 0 0 1 6 6"/></svg></div>
+              <span class="ls-service-carousel__label">Digital Product Strategy</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card" data-go="services" aria-label="View Notion Consultancy service details">
+            <div class="ls-service-carousel__card-bg" style="background-image:linear-gradient(to top,rgba(11,9,24,.92) 0%,rgba(11,9,24,.3) 35%,transparent 60%),url('/service-cards/09-notion-consultancy.jpg'),linear-gradient(160deg,#06B6D4 0%,#0B0918 100%)"></div>
+            <div class="ls-service-carousel__card-panel">
+              <div class="ls-service-carousel__badge" style="background:#06B6D4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
+              <span class="ls-service-carousel__label">Notion Consultancy</span>
+            </div>
+          </a>
+          <a class="ls-service-carousel__card ls-service-carousel__card--cta" data-go="services" aria-label="View all Lodestar services">
+            <div class="ls-service-carousel__cta-inner">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              <span>View All Services</span>
+            </div>
+          </a>
         </div>
+        <button class="ls-service-carousel__arrow ls-service-carousel__arrow--next" id="lsCarouselNext" aria-label="Next service"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+      <div class="ls-service-carousel__dots" id="lsCarouselDots">
+        <button class="ls-service-carousel__dot ls-service-carousel__dot--active" aria-label="Go to service 1"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 2"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 3"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 4"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 5"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 6"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 7"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 8"></button>
+        <button class="ls-service-carousel__dot" aria-label="Go to service 9"></button>
       </div>
     </div>
   </section>
@@ -1931,6 +2021,39 @@
     btn.disabled=false;
     btn.textContent='Send My Free Guides';
     btn.classList.remove('lc-launching');
+  });
+})();
+</script>
+<script>
+(function(){
+  var track=document.getElementById('lsCarouselTrack');
+  if(!track)return;
+  var prev=document.getElementById('lsCarouselPrev');
+  var next=document.getElementById('lsCarouselNext');
+  var dotsWrap=document.getElementById('lsCarouselDots');
+  var cards=Array.from(track.querySelectorAll('.ls-service-carousel__card:not(.ls-service-carousel__card--cta)'));
+  var dots=Array.from(dotsWrap.querySelectorAll('.ls-service-carousel__dot'));
+  function cardW(){return(cards[0]?cards[0].offsetWidth:300)+20;}
+  prev.addEventListener('click',function(){track.scrollBy({left:-cardW(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:cardW(),behavior:'smooth'});});
+  var ratios=cards.map(function(){return 0;});
+  function updateDots(){
+    var max=Math.max.apply(null,ratios);
+    var idx=max>0?ratios.indexOf(max):0;
+    dots.forEach(function(d,i){d.classList.toggle('ls-service-carousel__dot--active',i===idx);});
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var i=cards.indexOf(e.target);
+      if(i>=0)ratios[i]=e.intersectionRatio;
+    });
+    updateDots();
+  },{root:track,threshold:[0,.25,.5,.75,1]});
+  cards.forEach(function(c){io.observe(c);});
+  dots.forEach(function(dot,i){
+    dot.addEventListener('click',function(){
+      cards[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+    });
   });
 })();
 </script>
