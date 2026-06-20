@@ -686,7 +686,7 @@
 
   /* ---------- SERVICES CAROUSEL (ls-service-carousel) ---------- */
   .ls-service-carousel__outer{position:relative;margin-top:48px;width:100vw;left:50%;margin-left:-50vw;margin-right:-50vw}
-  .ls-service-carousel__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:8px clamp(20px,5vw,64px) 20px;scrollbar-width:none;-ms-overflow-style:none}
+  .ls-service-carousel__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:8px clamp(64px,6vw,120px) 20px;scrollbar-width:none;-ms-overflow-style:none}
   .ls-service-carousel__track::-webkit-scrollbar{display:none}
   .ls-service-carousel__card{flex:0 0 auto;width:300px;aspect-ratio:4/5;scroll-snap-align:start;border-radius:20px;position:relative;overflow:hidden;text-decoration:none;cursor:pointer;display:block}
   .ls-service-carousel__card-bg{position:absolute;inset:0;background-size:cover;background-position:center;border-radius:inherit;transition:transform .4s cubic-bezier(.22,1,.36,1)}
@@ -701,8 +701,8 @@
   .ls-service-carousel__cta-inner span{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.15rem;color:#fff}
   .ls-service-carousel__arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(237,234,247,.18);background:rgba(11,9,24,.7);backdrop-filter:blur(8px);color:#EDEAF7;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:background .2s,border-color .2s}
   .ls-service-carousel__arrow:hover{background:rgba(192,38,211,.25);border-color:rgba(192,38,211,.5)}
-  .ls-service-carousel__arrow--prev{left:clamp(16px,2vw,24px)}
-  .ls-service-carousel__arrow--next{right:clamp(16px,2vw,24px)}
+  .ls-service-carousel__arrow--prev{left:calc(clamp(64px,6vw,120px) - 20px)}
+  .ls-service-carousel__arrow--next{right:calc(clamp(64px,6vw,120px) - 20px)}
   .ls-service-carousel__dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
   .ls-service-carousel__dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(237,234,247,.2);cursor:pointer;padding:0;transition:background .2s,transform .2s}
   .ls-service-carousel__dot--active{background:linear-gradient(100deg,#C026D3,#06B6D4);transform:scale(1.35)}
